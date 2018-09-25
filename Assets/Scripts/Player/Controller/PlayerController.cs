@@ -162,5 +162,20 @@ namespace Player.Controller
                 _playerState = PlayerState.Dying;
             }
         }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.layer == 11)
+            {
+                if (_playerState == PlayerState.Alive)
+                {
+                    var bullet = other.GetComponent<BulletView>();
+
+                    bullet.IsDead = true;
+
+                    _playerState = PlayerState.Dying;
+                }
+            }
+        }
     }
 }

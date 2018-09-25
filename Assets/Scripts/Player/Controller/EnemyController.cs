@@ -1,15 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Weapons.Bullet;
+using Random = UnityEngine.Random;
 
 namespace Player.Controller
 {
     public enum EnemyType
     {
         None,
-        Green,
-        Red,
-        Blue
+        Regular,
+        Shooter,
+        Tank,
+        ShootingTank
     }
 
     public class EnemyController : MonoBehaviour
@@ -34,13 +37,13 @@ namespace Player.Controller
         private int _hp = 1;
         private ParticleSystem.EmitParams _emitParams;
 
-        public void Setup(int hp)
-        {
-            _hp = hp;
-        }
+        [SerializeField] private EnemyType _enemyType;
+        private bool _canShoot;
 
         void Start()
         {
+            IsDead = false;
+
             _mainWeaponCooldownTimer = MainWeaponCooldownTimer();
 
             _emitParams = new ParticleSystem.EmitParams
@@ -48,6 +51,30 @@ namespace Player.Controller
                 applyShapeToPosition = true
             };
 
+
+            switch (_enemyType)
+            {
+                case EnemyType.None:
+                    break;
+                case EnemyType.Regular:
+                    _hp = 1;
+                    _canShoot = false;
+                    break;
+                case EnemyType.Shooter:
+                    _hp = 1;
+                    _canShoot = true;
+                    break;
+                case EnemyType.Tank:
+                    _hp = 2;
+                    _canShoot = false;
+                    break;
+                case EnemyType.ShootingTank:
+                    _hp = 2;
+                    _canShoot = true;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
             
         }
 
@@ -85,13 +112,6 @@ namespace Player.Controller
         private void HandleAlive()
         {
             HandleShooting();
-
-
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                
-                _enemyState = EnemyState.Dying;
-            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -100,7 +120,6 @@ namespace Player.Controller
             {
                 if (_enemyState == EnemyState.Alive && _hp > 0)
                 {
-
                     var bullet = other.GetComponent<BulletView>();
 
                     bullet.IsDead = true;
@@ -133,16 +152,20 @@ namespace Player.Controller
 
         private void HandleShooting()
         {
-            if (_mainWeaponCooldownTimer > 0)
+            if (_canShoot)
             {
-                _mainWeaponCooldownTimer -= Time.deltaTime;
-            }
+                if (_mainWeaponCooldownTimer > 0)
+                {
+                    _mainWeaponCooldownTimer -= Time.deltaTime;
+                }
 
-            if (_mainWeaponCooldownTimer <= 0)
-            {
-                _mainWeaponCooldownTimer = MainWeaponCooldownTimer();
-                _bullets.Add(Instantiate(_bulletPrefab, transform.position, Quaternion.identity));
+                if (_mainWeaponCooldownTimer <= 0)
+                {
+                    _mainWeaponCooldownTimer = MainWeaponCooldownTimer();
+                    _bullets.Add(Instantiate(_bulletPrefab, transform.position, Quaternion.identity));
+                }
             }
+            
 
             MoveBullets();
 

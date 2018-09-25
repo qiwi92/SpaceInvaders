@@ -5216,9 +5216,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c803793b8ae4b7da8a386413d16436e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 114262064581805906, guid: 309a454614533c74080f47f7a233c45f,
-    type: 2}
   _enemyMovemementSpeed: 4
+  _levelInfo: {fileID: 11400000, guid: 10990ed933edceb42b3e73ddb0582db4, type: 2}
+  _regularPrefab: {fileID: 114854964737587200, guid: ddb737326de76c049af5f1f790733b0a,
+    type: 2}
+  _shooterPrefab: {fileID: 114186509061130178, guid: e8f8ab1bd3c0ce64e80c8f4ee269db53,
+    type: 2}
+  _tankPrefab: {fileID: 114779322268340476, guid: 49513caa75cd0784b8f27c8ed62fd1b7,
+    type: 2}
+  _shootingTankPrefab: {fileID: 114761608077618766, guid: bfd612984aa69184fbde26d6f0fdafde,
+    type: 2}
 --- !u!4 &1824199508
 Transform:
   m_ObjectHideFlags: 0

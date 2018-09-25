@@ -47,8 +47,6 @@ namespace Player.Controller
                     HandleDying();
                     break;
             }
-
-        
         }
 
         private void HandleDead()
@@ -86,6 +84,8 @@ namespace Player.Controller
 
         private void HandleShooting()
         {
+
+        
             if (_mainWeaponCooldownTimer > 0)
             {
                 _mainWeaponCooldownTimer -= Time.deltaTime;
@@ -94,8 +94,9 @@ namespace Player.Controller
             if (Input.GetKey(KeyCode.Space) & _mainWeaponCooldownTimer <= 0)
             {
                 _mainWeaponCooldownTimer = _mainWeaponCooldown;
-                _bullets.Add(Instantiate(_bulletPrefab, transform.position, Quaternion.identity ));
+                _bullets.Add(Instantiate(_bulletPrefab, transform.position, Quaternion.identity));
             }
+            
 
             DestroyDeadBullets();
 

@@ -53,7 +53,7 @@ namespace Player.Controller
 
         private void HandleDead()
         {
-            
+            DestroyDeadBullets();
         }
 
         private void HandleSpawning()
@@ -97,15 +97,7 @@ namespace Player.Controller
                 _bullets.Add(Instantiate(_bulletPrefab, transform.position, Quaternion.identity ));
             }
 
-            foreach (var bullet in _bullets)
-            {
-                if (bullet.transform.position.y > _bulletMaxTravelDistance || bullet.IsDead)
-                {
-                    _deadBullets.Add(bullet);
-                }
-
-                bullet.transform.position += _bulletSpeed * Time.smoothDeltaTime * Vector3.up;
-            }
+            DestroyDeadBullets();
 
 
             foreach (var deadBullet in _deadBullets)
@@ -115,6 +107,19 @@ namespace Player.Controller
             }
 
             _deadBullets.Clear();
+        }
+
+        private void DestroyDeadBullets()
+        {
+            foreach (var bullet in _bullets)
+            {
+                if (bullet.transform.position.y > _bulletMaxTravelDistance || bullet.IsDead)
+                {
+                    _deadBullets.Add(bullet);
+                }
+
+                bullet.transform.position += _bulletSpeed * Time.smoothDeltaTime * Vector3.up;
+            }
         }
 
         private void HandleMovementInput()
@@ -159,6 +164,7 @@ namespace Player.Controller
             if (!_isDead)
             {
                 _isDead = true;
+
                 _playerState = PlayerState.Dying;
             }
         }

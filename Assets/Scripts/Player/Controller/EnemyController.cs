@@ -15,6 +15,7 @@ namespace Player.Controller
     public class EnemyController : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _deathParticleSystem;
+        [SerializeField] private ParticleSystem _impactParticleSystem;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         private EnemyState _enemyState = EnemyState.Spawning;
         
@@ -30,9 +31,24 @@ namespace Player.Controller
         [SerializeField] private float _mainWeaponCooldown;
         private float _mainWeaponCooldownTimer;
 
+        private int _hp = 1;
+        private ParticleSystem.EmitParams _emitParams;
+
+        public void Setup(int hp)
+        {
+            _hp = hp;
+        }
+
         void Start()
         {
             _mainWeaponCooldownTimer = MainWeaponCooldownTimer();
+
+            _emitParams = new ParticleSystem.EmitParams
+            {
+                applyShapeToPosition = true
+            };
+
+            
         }
 
         void Update()
@@ -82,15 +98,24 @@ namespace Player.Controller
         {
             if (other.gameObject.layer == 10)
             {
-                if (_enemyState == EnemyState.Alive)
+                if (_enemyState == EnemyState.Alive && _hp > 0)
                 {
+
                     var bullet = other.GetComponent<BulletView>();
 
                     bullet.IsDead = true;
 
-                    
+                    _hp -= 1;
 
-                    _enemyState = EnemyState.Dying;
+                    if (_hp > 0)
+                    {
+                        _impactParticleSystem.Emit(_emitParams, 20);
+                    }
+
+                    if (_hp == 0)
+                    {
+                        _enemyState = EnemyState.Dying;
+                    }
                 }
             }    
         }
@@ -101,13 +126,8 @@ namespace Player.Controller
             IsDead = true;
             _spriteRenderer.enabled = false;
 
-       
-            var emitParams = new ParticleSystem.EmitParams
-            {
-                position = transform.position,
-                applyShapeToPosition = true
-            };
-            _deathParticleSystem.Emit(emitParams, 20);
+            _emitParams.position = transform.position;
+            _deathParticleSystem.Emit(_emitParams, 20);
             _enemyState = EnemyState.Dead;
         }
 

@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using Weapons.Bullet;
 
@@ -7,18 +9,26 @@ namespace Player.Controller
 {
     public class PlayerController : MonoBehaviour
     {
-
         [SerializeField] private float _maxMoveBound;
         [SerializeField] private float _movementSpeed;
+
+        [SerializeField] private float _mainWeaponCooldown;
+        private float _mainWeaponCooldownTimer = 0;
 
         [SerializeField] private float _bulletSpeed;
         [SerializeField] private float _bulletMaxTravelDistance;
         [SerializeField] private BulletView _bulletPrefab;
+
+        [SerializeField] private ParticleSystem _deathParticleSystem;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
+
         private readonly List<BulletView> _bullets = new List<BulletView>();
         private readonly List<BulletView> _deadBullets = new List<BulletView>();
 
         private PlayerState _playerState = PlayerState.Spawning;
+        private bool _isDead;
 
+        public event Action PlayerIsDead;
 
         void Update ()
         {
@@ -43,11 +53,12 @@ namespace Player.Controller
 
         private void HandleDead()
         {
-            _playerState = PlayerState.Spawning;
+            
         }
 
         private void HandleSpawning()
         {
+            _spriteRenderer.enabled = true;
             _playerState = PlayerState.Alive;
         }
 
@@ -55,23 +66,34 @@ namespace Player.Controller
         {
             HandleMovementInput();
             HandleShooting();
-
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                Debug.Log("Player is dying!");
-                _playerState = PlayerState.Dying;
-            }
         }
 
         private void HandleDying()
         {
-            _playerState = PlayerState.Dead;
+            _spriteRenderer.enabled = false;
+
+            var emitParams = new ParticleSystem.EmitParams
+            {
+                position = transform.position,
+                applyShapeToPosition = true
+            };
+            _deathParticleSystem.Emit(emitParams, 20);
+
+            PlayerIsDead?.Invoke();
+            _playerState = PlayerState.Dead; 
+
         }
 
         private void HandleShooting()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (_mainWeaponCooldownTimer > 0)
             {
+                _mainWeaponCooldownTimer -= Time.deltaTime;
+            }
+
+            if (Input.GetKey(KeyCode.Space) & _mainWeaponCooldownTimer <= 0)
+            {
+                _mainWeaponCooldownTimer = _mainWeaponCooldown;
                 _bullets.Add(Instantiate(_bulletPrefab, transform.position, Quaternion.identity ));
             }
 
@@ -129,6 +151,15 @@ namespace Player.Controller
                         transform.position += _movementSpeed * speedInput * Time.smoothDeltaTime * Vector3.right;
                     }
                 }
+            }
+        }
+
+        public void Die()
+        {
+            if (!_isDead)
+            {
+                _isDead = true;
+                _playerState = PlayerState.Dying;
             }
         }
     }

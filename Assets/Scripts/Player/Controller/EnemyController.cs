@@ -3,11 +3,37 @@ using Weapons.Bullet;
 
 namespace Player.Controller
 {
+    public enum EnemyType
+    {
+        None,
+        Green,
+        Red,
+        Blue
+    }
+
     public class EnemyController : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _deathParticleSystem;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         private EnemyState _enemyState = EnemyState.Spawning;
+        
+        public bool IsDead { get; private set; }
+
+
+        public void Setup(EnemyType enemyType)
+        {
+            switch (enemyType)
+            {
+                case EnemyType.None:
+                    break;
+                case EnemyType.Green:
+                    break;
+                case EnemyType.Red:
+                    break;
+                case EnemyType.Blue:
+                    break;
+            }
+        }
 
         void Update()
         {
@@ -56,19 +82,26 @@ namespace Player.Controller
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-
-            if (_enemyState == EnemyState.Alive)
+            if (other.gameObject.layer == 10)
             {
-                var bullet = other.GetComponent<BulletView>();
-                bullet.IsDead = true;
-                _enemyState = EnemyState.Dying;
-            }
+                if (_enemyState == EnemyState.Alive)
+                {
+                    var bullet = other.GetComponent<BulletView>();
+
+                    bullet.IsDead = true;
+                    
+
+                    _enemyState = EnemyState.Dying;
+                }
+            }    
         }
        
 
         private void HandleDying()
         {
+            IsDead = true;
             _spriteRenderer.enabled = false;
+            
 
             var emitParams = new ParticleSystem.EmitParams
             {

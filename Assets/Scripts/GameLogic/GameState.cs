@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using Enemies;
+using Player.Controller;
 using UniRx;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ namespace GameLogic
         public static ReactiveProperty<int> Level = new ReactiveProperty<int>(1);
         public static ReactiveProperty<int> Money = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> MoneyInLastLevel = new ReactiveProperty<int>(0);
+
+        public static PlayerStatModel PlayerStats = new PlayerStatModel();
 
         public static float Multiplier;
 

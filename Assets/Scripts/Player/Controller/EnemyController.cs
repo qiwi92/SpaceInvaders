@@ -41,7 +41,7 @@ namespace Player.Controller
         private bool _hasCoin;
         private Coin _coinPrefab;
 
-        public void Setup(ColorType color)
+        public void Setup(ColorType color, float moveSpeed, float attackSpeed)
         {
             _spriteRenderer.sprite = _sprites.GetSprite(color, _enemyType);
         }

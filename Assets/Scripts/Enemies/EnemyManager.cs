@@ -85,16 +85,16 @@ namespace Enemies
                         case EnemyType.None:
                             break;
                         case EnemyType.Regular:
-                            CreateEnemy(_regularPrefab, colorType, x, y);
+                            CreateEnemy(_regularPrefab, colorType, levelInfo.Speed, levelInfo.AttackSpeed, x, y);
                             break;
                         case EnemyType.Shooter:
-                            CreateEnemy(_shooterPrefab, colorType, x, y);
+                            CreateEnemy(_shooterPrefab, colorType, levelInfo.Speed, levelInfo.AttackSpeed, x, y);
                             break;
                         case EnemyType.Tank:
-                            CreateEnemy(_tankPrefab, colorType, x, y);
+                            CreateEnemy(_tankPrefab, colorType, levelInfo.Speed, levelInfo.AttackSpeed, x, y);
                             break;
                         case EnemyType.ShootingTank:
-                            CreateEnemy(_shootingTankPrefab, colorType, x, y);
+                            CreateEnemy(_shootingTankPrefab, levelInfo.Speed, levelInfo.AttackSpeed, x, y);
                             break;
                     }
                 }
@@ -149,13 +149,11 @@ namespace Enemies
         }
 
 
-        private void CreateEnemy(EnemyController enemy, ColorType color, int x, int y)
+        private void CreateEnemy(EnemyController enemy, ColorType color, float moveSpeed, float attackSpeed, int x, int y)
         {
-            
-
             var newEnemy = Instantiate(enemy, transform);
             newEnemy.transform.position = new Vector2(x * 0.8f - 7, y * 0.8f);
-            newEnemy.Setup(color);
+            newEnemy.Setup(color, moveSpeed, attackSpeed);
 
             
 

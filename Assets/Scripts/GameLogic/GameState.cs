@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using Enemies;
 using UniRx;
 using UnityEngine;
@@ -18,6 +20,7 @@ namespace GameLogic
         public static float Multiplier;
 
         private static readonly int[] _wayPoints = new[] {1, 3, 6, 9, 12};
+        private static int _scoreAtLastWayPoint = 0;
         private static int _lastWayPoint = 1;
 
         [SerializeField] private LevelInfo[] _levelInfo;
@@ -42,10 +45,16 @@ namespace GameLogic
             Level.Value += 1;
 
             _lastWayPoint = _wayPoints.TakeWhile(p => p < Level.Value).Last();
+
+            if (_wayPoints.Any(x => x == Level.Value))
+            {
+                _scoreAtLastWayPoint = Score.Value;
+            }
         }
 
         public static void ResetToLastWaypoint()
         {
+            Score.Value = _scoreAtLastWayPoint;
             Level.Value = _lastWayPoint;
         }
 

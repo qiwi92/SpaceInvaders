@@ -12,6 +12,9 @@ namespace GameLogic
         [SerializeField] private Text _weaponAttackSpeed;
         [SerializeField] private Text _weaponUpgradeCosts;
 
+        [SerializeField] private Color _moneyColor;
+        [SerializeField] private Color _cantAffordColor;
+
         [SerializeField] private Button _upgradeButton;
 
         private ReactiveCommand CanBuyWeapon;
@@ -27,7 +30,13 @@ namespace GameLogic
             {
                 GameState.Money.Value -= (int) GameState.PlayerStats.WeaponCost.Value;
                 GameState.PlayerStats.WeaponLevel.Value += 1;
+                
             }));
+
+            _disposables.Add(canBuy.Subscribe(buyable =>
+                {
+                    _weaponUpgradeCosts.color = buyable ? _moneyColor : _cantAffordColor;
+                }));
 
             _disposables.Add(GameState.PlayerStats.WeaponLevel.Subscribe(lvl =>
             {

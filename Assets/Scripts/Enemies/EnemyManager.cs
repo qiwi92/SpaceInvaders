@@ -103,19 +103,16 @@ namespace Enemies
             }
 
 
-            //TODO: replace with actual level value
-            CalculateRewardPerCoin(10);
-
+            CalculateRewardPerCoin(levelInfo.MoneyReward);
 
             ExecuteMove();
 
             EnemiesArrievedAtPlayer += () => { transform.DOKill(false); };
-
         }
 
         private void CalculateRewardPerCoin(int totalReward)
         {
-            var divisor = 5;
+            var divisor = 4;
             var numberOfEnemies = _enemies.Count;
 
             if (numberOfEnemies < divisor)

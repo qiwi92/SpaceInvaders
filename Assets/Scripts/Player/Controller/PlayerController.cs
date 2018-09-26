@@ -39,7 +39,7 @@ namespace Player.Controller
 
         public event Action PlayerIsDead;
 
-        private List<IDisposable> _disposables = new List<IDisposable>();
+        private readonly List<IDisposable> _disposables = new List<IDisposable>();
 
         private void Start()
         {

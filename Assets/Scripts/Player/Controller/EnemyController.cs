@@ -28,7 +28,7 @@ namespace Player.Controller
         [SerializeField] private float _bulletMaxTravelDistance;
         [SerializeField] private BulletView _bulletPrefab;
 
-        [SerializeField] private float _mainWeaponCooldown;
+        private float _weaponCooldown;
         private float _mainWeaponCooldownTimer;
 
         [SerializeField] private int _hitPoints;
@@ -41,9 +41,10 @@ namespace Player.Controller
         private bool _hasCoin;
         private Coin _coinPrefab;
 
-        public void Setup(ColorType color, float moveSpeed, float attackSpeed)
+        public void Setup(ColorType color, float cooldown)
         {
             _spriteRenderer.sprite = _sprites.GetSprite(color, _enemyType);
+            _weaponCooldown = cooldown;
         }
 
         void Start()
@@ -217,7 +218,7 @@ namespace Player.Controller
 
         private float MainWeaponCooldownTimer()
         {
-            return _mainWeaponCooldown * Random.Range(0.1f,1f);
+            return _weaponCooldown * Random.Range(0.1f,1f);
         }
 
         public void SetupCoin(int coinValue, Coin coinPrefab)

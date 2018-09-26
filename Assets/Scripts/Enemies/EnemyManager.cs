@@ -11,7 +11,7 @@ namespace Enemies
 {
     public class EnemyManager : MonoBehaviour
     {
-        [SerializeField] private float _enemyMovemementSpeed;
+        private float _movemementSpeed;
 
         [SerializeField] private EnemyController _regularPrefab;
         [SerializeField] private EnemyController _shooterPrefab;
@@ -63,6 +63,8 @@ namespace Enemies
 
         public void Setup(LevelInfo levelInfo)
         {
+            _movemementSpeed = levelInfo.Speed;
+
             foreach (var direction in _path)
             {
                 _pos += direction.ToVector2();
@@ -85,16 +87,16 @@ namespace Enemies
                         case EnemyType.None:
                             break;
                         case EnemyType.Regular:
-                            CreateEnemy(_regularPrefab, colorType, levelInfo.Speed, levelInfo.AttackSpeed, x, y);
+                            CreateEnemy(_regularPrefab, colorType, levelInfo.AttackSpeed, x, y);
                             break;
                         case EnemyType.Shooter:
-                            CreateEnemy(_shooterPrefab, colorType, levelInfo.Speed, levelInfo.AttackSpeed, x, y);
+                            CreateEnemy(_shooterPrefab, colorType, levelInfo.AttackSpeed, x, y);
                             break;
                         case EnemyType.Tank:
-                            CreateEnemy(_tankPrefab, colorType, levelInfo.Speed, levelInfo.AttackSpeed, x, y);
+                            CreateEnemy(_tankPrefab, colorType, levelInfo.AttackSpeed, x, y);
                             break;
                         case EnemyType.ShootingTank:
-                            CreateEnemy(_shootingTankPrefab, levelInfo.Speed, levelInfo.AttackSpeed, x, y);
+                            CreateEnemy(_shootingTankPrefab, colorType, levelInfo.AttackSpeed, x, y);
                             break;
                     }
                 }
@@ -149,11 +151,11 @@ namespace Enemies
         }
 
 
-        private void CreateEnemy(EnemyController enemy, ColorType color, float moveSpeed, float attackSpeed, int x, int y)
+        private void CreateEnemy(EnemyController enemy, ColorType color, float attackSpeed, int x, int y)
         {
             var newEnemy = Instantiate(enemy, transform);
             newEnemy.transform.position = new Vector2(x * 0.8f - 7, y * 0.8f);
-            newEnemy.Setup(color, moveSpeed, attackSpeed);
+            newEnemy.Setup(color, attackSpeed);
 
             
 
@@ -186,7 +188,7 @@ namespace Enemies
             {
                 var nextPos = _moveQueue.Dequeue();
 
-                transform.DOMove(nextPos, 1/ _enemyMovemementSpeed).SetEase(Ease.Linear).OnComplete(ExecuteMove);
+                transform.DOMove(nextPos, 1/ _movemementSpeed).SetEase(Ease.Linear).OnComplete(ExecuteMove);
             }
             else
             {

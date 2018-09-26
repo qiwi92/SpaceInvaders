@@ -36,7 +36,6 @@ namespace Enemies
     public class EnemyManager : MonoBehaviour
     {
         [SerializeField] private float _enemyMovemementSpeed;
-        [SerializeField] private LevelInfo _levelInfo;
 
         [SerializeField] private EnemyController _regularPrefab;
         [SerializeField] private EnemyController _shooterPrefab;
@@ -80,8 +79,9 @@ namespace Enemies
 
         private readonly Queue<Vector2> _moveQueue = new Queue<Vector2>();
         private Vector2 _pos = Vector2.zero;
+        private bool _allEnemiesAreDead;
 
-        private void Start()
+        public void Setup(LevelInfo levelInfo)
         {
             foreach (var direction in _path)
             {
@@ -89,9 +89,9 @@ namespace Enemies
                 _moveQueue.Enqueue(_pos);
             }
 
-            for (var y = 0; y < _levelInfo.Rows.Length; y++)
+            for (var y = 0; y < levelInfo.Rows.Length; y++)
             {
-                var levelInfoRow = _levelInfo.Rows[y];
+                var levelInfoRow = levelInfo.Rows[y];
                 for (var x = 0; x < levelInfoRow.EnemyType.Length; x++)
                 {
                     var enemyType = levelInfoRow.EnemyType[x];
@@ -132,9 +132,10 @@ namespace Enemies
 
         private void ExecuteMove()
         {
-            if (_enemies.All(enemy => enemy.IsDead))
+            if (_enemies.All(enemy => enemy.IsDead) && !_allEnemiesAreDead)
             {
                 AllEnemiesAreDead?.Invoke();
+                _allEnemiesAreDead = true;
             }
 
             if (_enemies.Any(enemy => !enemy.IsDead && enemy.transform.position.y < -2.99f))

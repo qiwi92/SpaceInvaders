@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Enemies;
+using GameLogic;
 using UnityEngine;
 using Weapons.Bullet;
 
@@ -179,6 +181,20 @@ namespace Player.Controller
                     bullet.IsDead = true;
 
                     _playerState = PlayerState.Dying;
+                }
+            }
+
+            if (other.gameObject.layer == 12)
+            {
+                if (_playerState == PlayerState.Alive)
+                {
+                    var coin = other.GetComponent<Coin>();
+                    GameState.AddMoney(coin.Value);
+
+                    coin.IsDead = true;
+
+                    
+
                 }
             }
         }

@@ -5298,6 +5298,8 @@ MonoBehaviour:
     type: 2}
   _shootingTankPrefab: {fileID: 114761608077618766, guid: bfd612984aa69184fbde26d6f0fdafde,
     type: 2}
+  _coinPrefab: {fileID: 114340785796968478, guid: 23d5277f5ed93854c93e4fe8872789bb,
+    type: 2}
 --- !u!4 &1824199508
 Transform:
   m_ObjectHideFlags: 0

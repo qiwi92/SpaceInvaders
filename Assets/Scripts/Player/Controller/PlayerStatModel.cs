@@ -7,6 +7,7 @@ namespace Player.Controller
     {
         public ReactiveProperty<int> WeaponLevel = new ReactiveProperty<int>(0);
         public IReadOnlyReactiveProperty<float> WeaponCooldown;
+        public IReadOnlyReactiveProperty<float> WeaponCost;
 
         private readonly float[] _attackCDs = new[]
         {
@@ -23,9 +24,25 @@ namespace Player.Controller
             0.9f
         };
 
+        private readonly float[] _costs = new[]
+        {
+            100f,
+            120f,
+            144f,
+            172f,
+            207f,
+            248f,
+            298f,
+            358f,
+            429f,
+            515f,
+            600f,
+        };
+
         public PlayerStatModel()
         {
             WeaponCooldown = WeaponLevel.Select(lvl => _attackCDs[lvl]).ToReactiveProperty();
+            WeaponCost = WeaponLevel.Select(lvl => _costs[lvl]).ToReactiveProperty();
         }
        
         public ReactiveProperty<bool> HasShield = new ReactiveProperty<bool>();

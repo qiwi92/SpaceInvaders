@@ -4,6 +4,7 @@ using Enemies;
 using GameLogic;
 using UnityEngine;
 using Weapons.Bullet;
+using UniRx;
 
 namespace Player.Controller
 {
@@ -12,7 +13,7 @@ namespace Player.Controller
         [SerializeField] private float _maxMoveBound;
         [SerializeField] private float _movementSpeed;
 
-        [SerializeField] private float _mainWeaponCooldown;
+        private float _mainWeaponCooldown;
         private float _mainWeaponCooldownTimer = 0;
 
         [SerializeField] private float _bulletSpeed;
@@ -37,6 +38,21 @@ namespace Player.Controller
 
 
         public event Action PlayerIsDead;
+
+        private List<IDisposable> _disposables = new List<IDisposable>();
+
+        private void Start()
+        {
+            _disposables.Add(GameState.PlayerStats.WeaponCooldown.Subscribe(cd => _mainWeaponCooldown = cd));
+        }
+
+        private void OnDestroy()
+        {
+            foreach (var disposable in _disposables)
+            {
+                disposable.Dispose();
+            }
+        }
 
         void Update ()
         {

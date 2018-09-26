@@ -14,7 +14,7 @@ MonoBehaviour:
   Speed: 1.8
   BulletSpeed: 0
   AttackSpeed: 30
-  MoneyReward: 0
+  MoneyReward: 90
   LevelInfoRows:
   - EnemyType:
     - EnemyType: 3

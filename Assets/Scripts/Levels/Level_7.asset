@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12303f79d8f42a29b32843d43700697, type: 3}
   m_Name: Level_7
   m_EditorClassIdentifier: 
-  Speed: 2
+  Speed: 3
   BulletSpeed: 0
   AttackSpeed: 20
-  MoneyReward: 0
+  MoneyReward: 58
   LevelInfoRows:
   - EnemyType:
     - EnemyType: 0

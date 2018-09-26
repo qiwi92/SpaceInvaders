@@ -14,5 +14,5 @@ MonoBehaviour:
   Speed: 0
   BulletSpeed: 0
   AttackSpeed: 0
-  MoneyReward: 0
+  MoneyReward: 122
   LevelInfoRows: []

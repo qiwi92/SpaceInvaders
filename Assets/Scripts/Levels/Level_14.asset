@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Name: Level_14
   m_EditorClassIdentifier: 
   Speed: 0
-  Rows: []
+  BulletSpeed: 0
+  AttackSpeed: 0
+  MoneyReward: 114
+  LevelInfoRows: []

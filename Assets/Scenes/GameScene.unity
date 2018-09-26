@@ -163,6 +163,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cfb1d367bedcf8541948aa66e1d8d7fc, type: 2}
   - {fileID: 11400000, guid: 7cc45b5316326ea4e9c73d8c8f68129a, type: 2}
   - {fileID: 11400000, guid: 1a16186563713d243aa714714f7a9d40, type: 2}
+  - {fileID: 11400000, guid: 8d119a06beb8301498aabe74df45e114, type: 2}
+  - {fileID: 11400000, guid: 82693a4452f965d438181e96000250e0, type: 2}
+  - {fileID: 11400000, guid: 7a6d738adb1bbf1498f6103d42dd3f0a, type: 2}
+  - {fileID: 11400000, guid: f64874c4b210b074f8acc3a5e7218154, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -5279,7 +5284,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxMoveBound: 8
   _movementSpeed: 6
-  _mainWeaponCooldown: 0.2
   _bulletSpeed: 10
   _bulletMaxTravelDistance: 6
   _bulletPrefab: {fileID: 114843020653186198, guid: b92f87bf18b729548912906886e77779,
@@ -10262,7 +10266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c803793b8ae4b7da8a386413d16436e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyMovemementSpeed: 4
   _regularPrefab: {fileID: 114854964737587200, guid: ddb737326de76c049af5f1f790733b0a,
     type: 2}
   _shooterPrefab: {fileID: 114186509061130178, guid: e8f8ab1bd3c0ce64e80c8f4ee269db53,

@@ -30,8 +30,9 @@ namespace GameLogic
                 DOVirtual.DelayedCall(2f, () =>
                 {
                     SceneManager.LoadScene(2);
-                    GameState.IncreaseLevel();
+                    
                     GameState.SetMultiplier(_playerController.Accuracy);
+                    GameState.IncreaseLevel();
                 });
             };
 
@@ -41,8 +42,9 @@ namespace GameLogic
                 DOVirtual.DelayedCall(1f, () =>
                 {
                     SceneManager.LoadScene(3);
-                    GameState.ResetToLastWaypoint();
                     GameState.SetMultiplier(_playerController.Accuracy);
+                    GameState.ResetToLastWaypoint();
+                    
                 });
             };
         }

@@ -31,6 +31,7 @@ namespace Player.Controller
         [SerializeField] private float _mainWeaponCooldown;
         private float _mainWeaponCooldownTimer;
 
+        [SerializeField] private int _hitPoints;
         private int _hp = 1;
         private ParticleSystem.EmitParams _emitParams;
 
@@ -62,19 +63,19 @@ namespace Player.Controller
                 case EnemyType.None:
                     break;
                 case EnemyType.Regular:
-                    _hp = 1;
+                    _hp = _hitPoints;
                     _canShoot = false;
                     break;
                 case EnemyType.Shooter:
-                    _hp = 1;
+                    _hp = _hitPoints;
                     _canShoot = true;
                     break;
                 case EnemyType.Tank:
-                    _hp = 2;
+                    _hp = _hitPoints;
                     _canShoot = false;
                     break;
                 case EnemyType.ShootingTank:
-                    _hp = 2;
+                    _hp = _hitPoints;
                     _canShoot = true;
                     break;
                 default:

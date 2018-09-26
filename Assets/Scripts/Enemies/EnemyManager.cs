@@ -170,7 +170,7 @@ namespace Enemies
                 _allEnemiesAreDead = true;
             }
 
-            if (_enemies.Any(enemy => !enemy.IsDead && enemy.transform.position.y < -2.99f))
+            if (_enemies.Any(enemy => !enemy.IsDead && enemy.transform.position.y < -3.35f))
             {
                 EnemiesArrievedAtPlayer?.Invoke();
             }

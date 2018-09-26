@@ -67,11 +67,12 @@ namespace GameLogic
             Multiplier = 0;
         }
 
-        public static void SetMultiplier(float playerControllerAccuracy)
+        public static void SetMultiplier(float missedShotsRatio)
         {
             
-            Multiplier = playerControllerAccuracy;
-            ResultingScore = (int) Multiplier * ScoreInLastLevel.Value;
+            Multiplier = 2 - missedShotsRatio;
+            ResultingScore =  (int) (Multiplier * ScoreInLastLevel.Value);
+            Score.Value += ResultingScore;
         }
     }
 }

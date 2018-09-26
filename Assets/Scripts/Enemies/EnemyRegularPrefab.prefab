@@ -193,6 +193,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 114861334616860320, guid: 7606263b3e461df46be6291c67840b0f,
     type: 2}
   _mainWeaponCooldown: 40
+  _hitPoints: 1
   _enemyType: 1
 --- !u!198 &198547697494761558
 ParticleSystem:

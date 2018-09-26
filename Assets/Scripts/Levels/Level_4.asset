@@ -81,12 +81,12 @@ MonoBehaviour:
   - EnemyType:
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
     - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
@@ -101,12 +101,12 @@ MonoBehaviour:
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
     - EnemyType: 0
       ColorType: 0
   - EnemyType:
@@ -143,9 +143,7 @@ MonoBehaviour:
   - EnemyType:
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
     - EnemyType: 2
       ColorType: 0
@@ -153,21 +151,23 @@ MonoBehaviour:
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
     - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
     - EnemyType: 2
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
       ColorType: 0

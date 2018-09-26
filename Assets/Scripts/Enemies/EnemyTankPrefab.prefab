@@ -197,6 +197,7 @@ MonoBehaviour:
   _impactParticleSystem: {fileID: 198516329825912734}
   _spriteRenderer: {fileID: 212055703918430364}
   _sprites: {fileID: 11400000, guid: 41811d33cb52e984db632450b6f6c9ce, type: 2}
+  _score: 30
   _bulletSpeed: 4
   _bulletMaxTravelDistance: 7
   _bulletPrefab: {fileID: 114861334616860320, guid: 7606263b3e461df46be6291c67840b0f,

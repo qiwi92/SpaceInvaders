@@ -30,6 +30,12 @@ namespace Player.Controller
         private bool _isDead;
         private ParticleSystem.EmitParams _emitParams = new ParticleSystem.EmitParams { applyShapeToPosition = true };
 
+        private int _firedBullets;
+        private int _missedBullets;
+
+        public float Accuracy => _missedBullets / (float) _firedBullets;
+
+
         public event Action PlayerIsDead;
 
         void Update ()
@@ -94,6 +100,7 @@ namespace Player.Controller
             {
                 _mainWeaponCooldownTimer = _mainWeaponCooldown;
                 _bullets.Add(Instantiate(_bulletPrefab, transform.position, Quaternion.identity));
+                _firedBullets += 1;
             }
             
 
@@ -113,7 +120,13 @@ namespace Player.Controller
         {
             foreach (var bullet in _bullets)
             {
-                if (bullet.transform.position.y > _bulletMaxTravelDistance || bullet.IsDead)
+                if (bullet.transform.position.y > _bulletMaxTravelDistance )
+                {
+                    _missedBullets += 1;
+                    bullet.IsDead = true;
+                }
+
+                if( bullet.IsDead)
                 {
                     _deadBullets.Add(bullet);
                 }
@@ -190,6 +203,7 @@ namespace Player.Controller
                     var coin = other.GetComponent<Coin>();
                     GameState.AddMoney(coin.Value);
 
+                    _coinParticleSystem.Stop();
                     _coinParticleSystem.Emit(1);
 
                     coin.IsDead = true;

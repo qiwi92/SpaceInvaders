@@ -16,7 +16,9 @@ namespace GameLogic
 
         private void Start()
         {
-            var currentLevelInfo = _levelInfos[GameState.Level - 1];
+            GameState.ResetValuesFromLastLevel();
+
+            var currentLevelInfo = _levelInfos[GameState.Level.Value - 1];
 
             _enemyManager.Setup(currentLevelInfo);
 
@@ -29,6 +31,7 @@ namespace GameLogic
                 {
                     SceneManager.LoadScene(2);
                     GameState.IncreaseLevel();
+                    GameState.SetMultiplier(_playerController.Accuracy);
                 });
             };
 
@@ -39,6 +42,7 @@ namespace GameLogic
                 {
                     SceneManager.LoadScene(3);
                     GameState.ResetToLastWaypoint();
+                    GameState.SetMultiplier(_playerController.Accuracy);
                 });
             };
         }

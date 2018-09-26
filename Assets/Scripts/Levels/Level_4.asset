@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12303f79d8f42a29b32843d43700697, type: 3}
   m_Name: Level_4
   m_EditorClassIdentifier: 
-  Speed: 0
+  Speed: 2
   BulletSpeed: 0
-  AttackSpeed: 0
+  AttackSpeed: 20
   MoneyReward: 0
   LevelInfoRows:
   - EnemyType:
@@ -143,7 +143,9 @@ MonoBehaviour:
   - EnemyType:
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
       ColorType: 0
     - EnemyType: 2
       ColorType: 0
@@ -151,23 +153,21 @@ MonoBehaviour:
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
     - EnemyType: 1
       ColorType: 1
     - EnemyType: 1
       ColorType: 1
     - EnemyType: 1
       ColorType: 1
-    - EnemyType: 0
-      ColorType: 0
     - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
     - EnemyType: 2
       ColorType: 0
-    - EnemyType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
@@ -184,12 +184,12 @@ MonoBehaviour:
       ColorType: 1
     - EnemyType: 1
       ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
     - EnemyType: 1
       ColorType: 1
     - EnemyType: 0

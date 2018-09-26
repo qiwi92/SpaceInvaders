@@ -11,8 +11,13 @@ namespace GameLogic
         [SerializeField] private EnemyManager _enemyManager;
         [SerializeField] private PlayerController _playerController;
 
+        [SerializeField] private LevelInfo[] _levelInfos;
+
+
         private void Start()
         {
+            _enemyManager.Setup(_levelInfos[GameState.Level-1]);
+
             _enemyManager.EnemiesArrievedAtPlayer += () => { _playerController.Die(); };
 
             _enemyManager.AllEnemiesAreDead += () =>
@@ -20,6 +25,7 @@ namespace GameLogic
                 DOVirtual.DelayedCall(1f, () =>
                 {
                     SceneManager.LoadScene(2);
+                    GameState.Level += 1;
                 });
             };
 

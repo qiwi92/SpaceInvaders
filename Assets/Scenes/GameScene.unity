@@ -155,6 +155,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyManager: {fileID: 1824199507}
   _playerController: {fileID: 1536754206}
+  _levelInfos:
+  - {fileID: 11400000, guid: 10990ed933edceb42b3e73ddb0582db4, type: 2}
+  - {fileID: 11400000, guid: b93ee82079f870246993eb03beaa21b8, type: 2}
+  - {fileID: 11400000, guid: bcb03c2301dc1944da49de2b88d0d59b, type: 2}
+  - {fileID: 11400000, guid: 270bfe21a6cb0e84a900da72b395ee3f, type: 2}
+  - {fileID: 11400000, guid: cfb1d367bedcf8541948aa66e1d8d7fc, type: 2}
+  - {fileID: 11400000, guid: 7cc45b5316326ea4e9c73d8c8f68129a, type: 2}
+  - {fileID: 11400000, guid: 1a16186563713d243aa714714f7a9d40, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5279,7 +5290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyMovemementSpeed: 4
-  _levelInfo: {fileID: 11400000, guid: b93ee82079f870246993eb03beaa21b8, type: 2}
   _regularPrefab: {fileID: 114854964737587200, guid: ddb737326de76c049af5f1f790733b0a,
     type: 2}
   _shooterPrefab: {fileID: 114186509061130178, guid: e8f8ab1bd3c0ce64e80c8f4ee269db53,

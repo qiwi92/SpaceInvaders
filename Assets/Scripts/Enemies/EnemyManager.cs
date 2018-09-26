@@ -4,35 +4,11 @@ using System.Linq;
 using Player.Controller;
 using UnityEngine;
 using DG.Tweening;
+using UnityEditorInternal;
 
 
 namespace Enemies
 {
-    public static class DirectionExtensions
-    {
-        public static Vector2 ToVector2(this EnemyBlockDirection direction)
-        {
-            switch (direction)
-            {
-                case EnemyBlockDirection.Down:
-                    return Vector2.down * 0.5f;
-                case EnemyBlockDirection.Left:
-                    return Vector2.left * 0.8f;
-                case EnemyBlockDirection.Right:
-                    return Vector2.right * 0.8f;
-                default:
-                    throw new ArgumentException();
-            }
-        }
-    }
-
-    public enum EnemyBlockDirection
-    {
-        Down,
-        Left,
-        Right
-    }
-
     public class EnemyManager : MonoBehaviour
     {
         [SerializeField] private float _enemyMovemementSpeed;
@@ -41,6 +17,8 @@ namespace Enemies
         [SerializeField] private EnemyController _shooterPrefab;
         [SerializeField] private EnemyController _tankPrefab;
         [SerializeField] private EnemyController _shootingTankPrefab;
+
+        [SerializeField] private Coin _coinPrefab;
 
         private readonly List<EnemyController> _enemies = new List<EnemyController>();
 
@@ -81,6 +59,8 @@ namespace Enemies
         private Vector2 _pos = Vector2.zero;
         private bool _allEnemiesAreDead;
 
+        private readonly List<int> _rewardsPerCoin = new List<int>();
+
         public void Setup(LevelInfo levelInfo)
         {
             foreach (var direction in _path)
@@ -88,6 +68,8 @@ namespace Enemies
                 _pos += direction.ToVector2();
                 _moveQueue.Enqueue(_pos);
             }
+
+
 
             for (var y = 0; y < levelInfo.LevelInfoRows.Length; y++)
             {
@@ -119,17 +101,64 @@ namespace Enemies
             }
 
 
+            //TODO: replace with actual level value
+            CalculateRewardPerCoin(10);
+
+
             ExecuteMove();
 
             EnemiesArrievedAtPlayer += () => { transform.DOKill(false); };
 
         }
 
+        private void CalculateRewardPerCoin(int totalReward)
+        {
+            var divisor = 5;
+            var numberOfEnemies = _enemies.Count;
+
+            if (numberOfEnemies < divisor)
+            {
+                divisor = numberOfEnemies;
+            }
+
+            for (int i = 0; i < divisor - 1; i++)
+            {
+                _rewardsPerCoin.Add((int) Mathf.Floor(totalReward / (float) divisor));
+            }
+
+            _rewardsPerCoin.Add((int) Mathf.Floor(totalReward / (float) divisor) + totalReward % divisor);
+
+            if (numberOfEnemies < divisor)
+            {
+                for (var i = 0; i < divisor; i++)
+                {
+                    var enemyController = _enemies[i];
+                    var coinValue = _rewardsPerCoin[i];
+                    enemyController.SetupCoin(coinValue, _coinPrefab);
+                }
+            }
+            else
+            {
+                for (var i = 0; i < divisor; i++)
+                {
+                    var enemyController = _enemies[i* (numberOfEnemies/divisor)];
+                    var coinValue = _rewardsPerCoin[i];
+                    enemyController.SetupCoin(coinValue, _coinPrefab);
+                }
+            }
+        }
+
+
         private void CreateEnemy(EnemyController enemy, ColorType color, int x, int y)
         {
+            
+
             var newEnemy = Instantiate(enemy, transform);
             newEnemy.transform.position = new Vector2(x * 0.8f - 7, y * 0.8f);
             newEnemy.Setup(color);
+
+            
+
             _enemies.Add(newEnemy);
         }
 

@@ -33,6 +33,9 @@ namespace Player.Controller
 
         [SerializeField] private EnemyType _enemyType;
         private bool _canShoot;
+        private int _coinValue;
+        private bool _hasCoin;
+        private Coin _coinPrefab;
 
         public void Setup(ColorType color)
         {
@@ -132,12 +135,23 @@ namespace Player.Controller
 
                     if (_hp == 0)
                     {
+                        if (_hasCoin)
+                        {
+                            SpawnCoin();
+                        }
+
                         _enemyState = EnemyState.Dying;
                     }
                 }
             }    
         }
-       
+
+        private void SpawnCoin()
+        {
+            var newCoin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
+            newCoin.Value = _coinValue;
+        }
+
 
         private void HandleDying()
         {
@@ -199,6 +213,13 @@ namespace Player.Controller
         private float MainWeaponCooldownTimer()
         {
             return _mainWeaponCooldown * Random.Range(0.1f,1f);
+        }
+
+        public void SetupCoin(int coinValue, Coin coinPrefab)
+        {
+            _coinValue = coinValue;
+            _hasCoin = true;
+            _coinPrefab = coinPrefab;
         }
     }
 }

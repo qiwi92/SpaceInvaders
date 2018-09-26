@@ -16,27 +16,31 @@ namespace GameLogic
 
         private void Start()
         {
-            _enemyManager.Setup(_levelInfos[GameState.Level-1]);
+            var currentLevelInfo = _levelInfos[GameState.Level - 1];
+
+            _enemyManager.Setup(currentLevelInfo);
 
             _enemyManager.EnemiesArrievedAtPlayer += () => { _playerController.Die(); };
 
             _enemyManager.AllEnemiesAreDead += () =>
             {
-                DOVirtual.DelayedCall(1f, () =>
+                //Victory
+                DOVirtual.DelayedCall(2f, () =>
                 {
                     SceneManager.LoadScene(2);
-                    GameState.Level += 1;
+                    GameState.IncreaseLevel();
                 });
             };
 
             _playerController.PlayerIsDead  += () =>
             {
+                //Defeat
                 DOVirtual.DelayedCall(1f, () =>
                 {
                     SceneManager.LoadScene(3);
+                    GameState.ResetToLastWaypoint();
                 });
             };
-
         }
     }
 }

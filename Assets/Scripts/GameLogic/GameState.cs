@@ -15,7 +15,7 @@ namespace GameLogic
         public static int ResultingScore;
         public static ReactiveProperty<int> ScoreInLastLevel = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> Level = new ReactiveProperty<int>(1);
-        public static ReactiveProperty<int> Money = new ReactiveProperty<int>(1000);
+        public static ReactiveProperty<int> Money = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> MoneyInLastLevel = new ReactiveProperty<int>(0);
 
         public static PlayerStatModel PlayerStats = new PlayerStatModel();

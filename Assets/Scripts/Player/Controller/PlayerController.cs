@@ -190,6 +190,7 @@ namespace Player.Controller
                     var coin = other.GetComponent<Coin>();
                     GameState.AddMoney(coin.Value);
 
+                    _coinParticleSystem.Stop();
                     _coinParticleSystem.Emit(1);
 
                     coin.IsDead = true;

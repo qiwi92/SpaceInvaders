@@ -8,8 +8,11 @@ namespace GameLogic
     public class GameState : MonoBehaviour
     {
         public static GameState Instance = null;
-        public static int Level = 1;
+        public static ReactiveProperty<int> Score = new ReactiveProperty<int>(0);
+        public static ReactiveProperty<int> ScoreInLastLevel = new ReactiveProperty<int>(0);
+        public static ReactiveProperty<int> Level = new ReactiveProperty<int>(1);
         public static ReactiveProperty<int> Money = new ReactiveProperty<int>(0);
+        public static ReactiveProperty<int> MoneyInLastLevel = new ReactiveProperty<int>(0);
 
         private static readonly int[] _wayPoints = new[] {1, 3, 6, 9, 12};
         private static int _lastWayPoint = 1;
@@ -33,19 +36,31 @@ namespace GameLogic
 
         public static void IncreaseLevel()
         {
-            Level += 1;
+            Level.Value += 1;
 
-            _lastWayPoint = _wayPoints.TakeWhile(p => p < Level).Last();
+            _lastWayPoint = _wayPoints.TakeWhile(p => p < Level.Value).Last();
         }
 
         public static void ResetToLastWaypoint()
         {
-            Level = _lastWayPoint;
+            Level.Value = _lastWayPoint;
         }
 
         public static void AddMoney(int coinValue)
         {
             Money.Value += coinValue;
+            MoneyInLastLevel.Value += coinValue;
+        }
+
+        public static void AddScore(int score)
+        {
+            ScoreInLastLevel.Value += score;
+        }
+
+        public static void ResetValuesFromLastLevel()
+        {
+            ScoreInLastLevel.Value = 0;
+            MoneyInLastLevel.Value = 0;
         }
     }
 }

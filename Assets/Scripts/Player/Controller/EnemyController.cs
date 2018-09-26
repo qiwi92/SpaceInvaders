@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Enemies;
+using GameLogic;
 using UnityEngine;
 using Weapons.Bullet;
 using Random = UnityEngine.Random;
@@ -13,6 +14,8 @@ namespace Player.Controller
         [SerializeField] private ParticleSystem _impactParticleSystem;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private EnemySprites _sprites;
+
+        [SerializeField] private int _score;
 
         private EnemyState _enemyState = EnemyState.Spawning;
         
@@ -140,6 +143,7 @@ namespace Player.Controller
                             SpawnCoin();
                         }
 
+                        GameState.AddScore(_score);
                         _enemyState = EnemyState.Dying;
                     }
                 }

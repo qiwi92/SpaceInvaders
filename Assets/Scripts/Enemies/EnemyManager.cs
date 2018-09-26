@@ -15,11 +15,11 @@ namespace Enemies
             switch (direction)
             {
                 case EnemyBlockDirection.Down:
-                    return Vector2.down*0.5f;
+                    return Vector2.down * 0.5f;
                 case EnemyBlockDirection.Left:
-                    return Vector2.left;
+                    return Vector2.left * 0.8f;
                 case EnemyBlockDirection.Right:
-                    return Vector2.right;
+                    return Vector2.right * 0.8f;
                 default:
                     throw new ArgumentException();
             }
@@ -89,28 +89,30 @@ namespace Enemies
                 _moveQueue.Enqueue(_pos);
             }
 
-            for (var y = 0; y < levelInfo.Rows.Length; y++)
+            for (var y = 0; y < levelInfo.LevelInfoRows.Length; y++)
             {
-                var levelInfoRow = levelInfo.Rows[y];
+                var levelInfoRow = levelInfo.LevelInfoRows[y];
                 for (var x = 0; x < levelInfoRow.EnemyType.Length; x++)
                 {
-                    var enemyType = levelInfoRow.EnemyType[x];
+                    var enemyInfo = levelInfoRow.EnemyType[x];
+                    var enemyType = enemyInfo.EnemyType;
+                    var colorType = enemyInfo.ColorType;
 
                     switch (enemyType)
                     {
                         case EnemyType.None:
                             break;
                         case EnemyType.Regular:
-                            CreateEnemy(_regularPrefab, x, y);
+                            CreateEnemy(_regularPrefab, colorType, x, y);
                             break;
                         case EnemyType.Shooter:
-                            CreateEnemy(_shooterPrefab, x, y);
+                            CreateEnemy(_shooterPrefab, colorType, x, y);
                             break;
                         case EnemyType.Tank:
-                            CreateEnemy(_tankPrefab, x, y);
+                            CreateEnemy(_tankPrefab, colorType, x, y);
                             break;
                         case EnemyType.ShootingTank:
-                            CreateEnemy(_shootingTankPrefab, x, y);
+                            CreateEnemy(_shootingTankPrefab, colorType, x, y);
                             break;
                     }
                 }
@@ -123,10 +125,11 @@ namespace Enemies
 
         }
 
-        private void CreateEnemy(EnemyController enemy, int x, int y)
+        private void CreateEnemy(EnemyController enemy, ColorType color, int x, int y)
         {
             var newEnemy = Instantiate(enemy, transform);
-            newEnemy.transform.position = new Vector2(x - 5, y);
+            newEnemy.transform.position = new Vector2(x * 0.8f - 7, y * 0.8f);
+            newEnemy.Setup(color);
             _enemies.Add(newEnemy);
         }
 

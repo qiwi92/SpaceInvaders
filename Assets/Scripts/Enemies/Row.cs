@@ -4,8 +4,15 @@ using Player.Controller;
 namespace Enemies
 {
     [Serializable]
-    public class Row
+    public class LevelInfoRow
     {
-        public EnemyType[] EnemyType;
+        public EnemyInfo[] EnemyType;
+    }
+
+    [Serializable]
+    public class EnemyInfo
+    {
+        public EnemyType EnemyType;
+        public ColorType ColorType;
     }
 }

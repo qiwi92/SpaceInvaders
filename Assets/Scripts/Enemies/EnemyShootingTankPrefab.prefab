@@ -98,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 1781670456183362}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 3, y: 1, z: 0}
-  m_LocalScale: {x: 0.74, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.65, y: 0.55, z: 1}
   m_Children:
   - {fileID: 4201323047056816}
   - {fileID: 4078724732931574}
@@ -141,7 +141,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2133334, y: 1.6533333}
+    oldSize: {x: 1.0705882, y: 1.4588236}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -217,6 +217,7 @@ MonoBehaviour:
   _deathParticleSystem: {fileID: 198947399534034808}
   _impactParticleSystem: {fileID: 198189407937274350}
   _spriteRenderer: {fileID: 212852500275314320}
+  _sprites: {fileID: 11400000, guid: 41811d33cb52e984db632450b6f6c9ce, type: 2}
   _bulletSpeed: 4
   _bulletMaxTravelDistance: 7
   _bulletPrefab: {fileID: 114861334616860320, guid: 7606263b3e461df46be6291c67840b0f,

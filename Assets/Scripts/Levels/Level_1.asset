@@ -12,9 +12,68 @@ MonoBehaviour:
   m_Name: Level_1
   m_EditorClassIdentifier: 
   Speed: 1
-  Rows:
-  - EnemyType: 00000000030000000300000003000000030000000300000003000000030000000300000000000000
-  - EnemyType: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
-  - EnemyType: 02000000020000000200000002000000020000000200000002000000020000000200000002000000
-  - EnemyType: 04000000040000000400000004000000040000000400000004000000040000000400000004000000
-  - EnemyType: 00000000010000000100000001000000010000000100000001000000010000000100000000000000
+  BulletSpeed: 0
+  AttackSpeed: 0
+  LevelInfoRows:
+  - EnemyType:
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+  - EnemyType:
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2

@@ -616,7 +616,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: ec37ae89-bc66-4e77-b70e-543d5c5c7ab1
   projectName: SpaceInvaders
   organizationId: qiwi-games

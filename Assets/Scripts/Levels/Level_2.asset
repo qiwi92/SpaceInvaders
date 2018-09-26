@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: Level_2
   m_EditorClassIdentifier: 
   Speed: 0
-  Rows: []
+  Rows:
+  - EnemyType: 01000000

@@ -80,6 +80,7 @@ namespace Enemies
 
         private readonly Queue<Vector2> _moveQueue = new Queue<Vector2>();
         private Vector2 _pos = Vector2.zero;
+        private bool _allEnemiesAreDead;
 
         private void Start()
         {
@@ -132,9 +133,10 @@ namespace Enemies
 
         private void ExecuteMove()
         {
-            if (_enemies.All(enemy => enemy.IsDead))
+            if (_enemies.All(enemy => enemy.IsDead) && !_allEnemiesAreDead)
             {
                 AllEnemiesAreDead?.Invoke();
+                _allEnemiesAreDead = true;
             }
 
             if (_enemies.Any(enemy => !enemy.IsDead && enemy.transform.position.y < -2.99f))

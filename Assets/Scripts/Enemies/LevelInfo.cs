@@ -6,6 +6,9 @@ namespace Enemies
     public class LevelInfo : ScriptableObject
     {
         public float Speed;
-        public Row[] Rows;
+        public float BulletSpeed;
+        public float AttackSpeed;
+
+        public LevelInfoRow[] LevelInfoRows;
     }
 }

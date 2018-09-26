@@ -1,25 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using Enemies;
 using UnityEngine;
 using Weapons.Bullet;
 using Random = UnityEngine.Random;
 
 namespace Player.Controller
 {
-    public enum EnemyType
-    {
-        None,
-        Regular,
-        Shooter,
-        Tank,
-        ShootingTank
-    }
-
     public class EnemyController : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _deathParticleSystem;
         [SerializeField] private ParticleSystem _impactParticleSystem;
         [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField] private EnemySprites _sprites;
+
         private EnemyState _enemyState = EnemyState.Spawning;
         
         public bool IsDead { get; private set; }
@@ -39,6 +33,11 @@ namespace Player.Controller
 
         [SerializeField] private EnemyType _enemyType;
         private bool _canShoot;
+
+        public void Setup(ColorType color)
+        {
+            _spriteRenderer.sprite = _sprites.GetSprite(color, _enemyType);
+        }
 
         void Start()
         {

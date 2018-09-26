@@ -9,10 +9,13 @@ namespace GameLogic
     {
         public static GameState Instance = null;
         public static ReactiveProperty<int> Score = new ReactiveProperty<int>(0);
+        public static int ResultingScore;
         public static ReactiveProperty<int> ScoreInLastLevel = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> Level = new ReactiveProperty<int>(1);
         public static ReactiveProperty<int> Money = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> MoneyInLastLevel = new ReactiveProperty<int>(0);
+
+        public static float Multiplier;
 
         private static readonly int[] _wayPoints = new[] {1, 3, 6, 9, 12};
         private static int _lastWayPoint = 1;
@@ -61,6 +64,14 @@ namespace GameLogic
         {
             ScoreInLastLevel.Value = 0;
             MoneyInLastLevel.Value = 0;
+            Multiplier = 0;
+        }
+
+        public static void SetMultiplier(float playerControllerAccuracy)
+        {
+            
+            Multiplier = playerControllerAccuracy;
+            ResultingScore = (int) Multiplier * ScoreInLastLevel.Value;
         }
     }
 }

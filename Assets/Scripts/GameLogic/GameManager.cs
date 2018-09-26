@@ -31,6 +31,7 @@ namespace GameLogic
                 {
                     SceneManager.LoadScene(2);
                     GameState.IncreaseLevel();
+                    GameState.SetMultiplier(_playerController.Accuracy);
                 });
             };
 
@@ -41,6 +42,7 @@ namespace GameLogic
                 {
                     SceneManager.LoadScene(3);
                     GameState.ResetToLastWaypoint();
+                    GameState.SetMultiplier(_playerController.Accuracy);
                 });
             };
         }

@@ -9,6 +9,8 @@ namespace Enemies
         public float BulletSpeed;
         public float AttackSpeed;
 
+        public int MoneyReward;
+
         public LevelInfoRow[] LevelInfoRows;
     }
 }

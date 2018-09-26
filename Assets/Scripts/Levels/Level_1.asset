@@ -14,7 +14,6 @@ MonoBehaviour:
   Speed: 1
   BulletSpeed: 0
   AttackSpeed: 0
-  MoneyReward: 0
   LevelInfoRows:
   - EnemyType:
     - EnemyType: 1
@@ -25,6 +24,14 @@ MonoBehaviour:
       ColorType: 0
     - EnemyType: 1
       ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
     - EnemyType: 1
       ColorType: 0
     - EnemyType: 1
@@ -33,3 +40,40 @@ MonoBehaviour:
       ColorType: 0
     - EnemyType: 1
       ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+  - EnemyType:
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2
+    - EnemyType: 1
+      ColorType: 2

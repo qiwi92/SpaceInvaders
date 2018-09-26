@@ -12,10 +12,4 @@ MonoBehaviour:
   m_Name: Level_4
   m_EditorClassIdentifier: 
   Speed: 0
-  BulletSpeed: 0
-  AttackSpeed: 0
-  MoneyReward: 0
-  LevelInfoRows:
-  - EnemyType:
-    - EnemyType: 1
-      ColorType: 2
+  Rows: []

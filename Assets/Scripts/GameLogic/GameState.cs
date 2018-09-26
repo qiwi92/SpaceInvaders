@@ -1,9 +1,7 @@
 ﻿using System.Linq;
-using DG.Tweening;
 using Enemies;
-using Player.Controller;
+using UniRx;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace GameLogic
 {
@@ -11,7 +9,7 @@ namespace GameLogic
     {
         public static GameState Instance = null;
         public static int Level = 1;
-        public static int Money = 0;
+        public static ReactiveProperty<int> Money = new ReactiveProperty<int>(0);
 
         private static readonly int[] _wayPoints = new[] {1, 3, 6, 9, 12};
         private static int _lastWayPoint = 1;
@@ -47,10 +45,7 @@ namespace GameLogic
 
         public static void AddMoney(int coinValue)
         {
-            
-            Money += coinValue;
-
-            Debug.Log("Money: " + Money);
+            Money.Value += coinValue;
         }
     }
 }

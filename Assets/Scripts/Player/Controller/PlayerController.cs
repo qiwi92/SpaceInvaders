@@ -20,6 +20,7 @@ namespace Player.Controller
         [SerializeField] private BulletView _bulletPrefab;
 
         [SerializeField] private ParticleSystem _deathParticleSystem;
+        [SerializeField] private ParticleSystem _coinParticleSystem;
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
         private readonly List<BulletView> _bullets = new List<BulletView>();
@@ -27,6 +28,7 @@ namespace Player.Controller
 
         private PlayerState _playerState = PlayerState.Spawning;
         private bool _isDead;
+        private ParticleSystem.EmitParams _emitParams = new ParticleSystem.EmitParams { applyShapeToPosition = true };
 
         public event Action PlayerIsDead;
 
@@ -70,12 +72,9 @@ namespace Player.Controller
         {
             _spriteRenderer.enabled = false;
 
-            var emitParams = new ParticleSystem.EmitParams
-            {
-                position = transform.position,
-                applyShapeToPosition = true
-            };
-            _deathParticleSystem.Emit(emitParams, 20);
+            
+            _emitParams.position = transform.position;
+            _deathParticleSystem.Emit(_emitParams, 20);
 
             PlayerIsDead?.Invoke();
             _playerState = PlayerState.Dead; 
@@ -191,10 +190,9 @@ namespace Player.Controller
                     var coin = other.GetComponent<Coin>();
                     GameState.AddMoney(coin.Value);
 
+                    _coinParticleSystem.Emit(1);
+
                     coin.IsDead = true;
-
-                    
-
                 }
             }
         }

@@ -17,11 +17,19 @@ MonoBehaviour:
   MoneyReward: 0
   LevelInfoRows:
   - EnemyType:
-    - EnemyType: 2
+    - EnemyType: 1
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 1
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 1
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 0
+    - EnemyType: 1
       ColorType: 0

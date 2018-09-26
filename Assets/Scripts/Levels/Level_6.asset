@@ -12,4 +12,103 @@ MonoBehaviour:
   m_Name: Level_6
   m_EditorClassIdentifier: 
   Speed: 0
-  Rows: []
+  BulletSpeed: 0
+  AttackSpeed: 0
+  MoneyReward: 0
+  LevelInfoRows:
+  - EnemyType: []
+  - EnemyType: []
+  - EnemyType:
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+  - EnemyType:
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 1
+    - EnemyType: 3
+      ColorType: 2
+    - EnemyType: 3
+      ColorType: 2
+    - EnemyType: 3
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 1
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+  - EnemyType:
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+  - EnemyType: []

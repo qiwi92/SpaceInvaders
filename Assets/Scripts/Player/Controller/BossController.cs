@@ -267,7 +267,6 @@ namespace Player.Controller
             {
                 _laserTransform.gameObject.SetActive(true);
                 _laserCd = false;
-                Debug.Log("Hello");
             }
             
 

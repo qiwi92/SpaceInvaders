@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 212215943072888744}
   - component: {fileID: 114854964737587200}
   - component: {fileID: 50248988289025196}
-  - component: {fileID: 60879834005219688}
+  - component: {fileID: 60505351871029360}
   m_Layer: 9
   m_Name: EnemyRegularPrefab
   m_TagString: Untagged
@@ -64,6 +64,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1684759685591090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4600307415101906}
+  - component: {fileID: 331557311145900798}
+  m_Layer: 0
+  m_Name: DamageMask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4037048360694734
 Transform:
   m_ObjectHideFlags: 1
@@ -75,7 +91,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4094947558760038}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4094947558760038
 Transform:
@@ -87,9 +103,23 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 0.9, z: 1}
   m_Children:
+  - {fileID: 4600307415101906}
   - {fileID: 4037048360694734}
   - {fileID: 4997519984538528}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4600307415101906
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1684759685591090}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.65, y: 1.12, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4094947558760038}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4997519984538528
@@ -103,7 +133,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4094947558760038}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50248988289025196
 Rigidbody2D:
@@ -125,7 +155,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60879834005219688
+--- !u!60 &60505351871029360
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,29 +179,29 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.27333334, y: -0.32666668}
-      - {x: 0.27333334, y: -0.120000005}
-      - {x: 0.26000002, y: -0.093333334}
-      - {x: 0.25333333, y: 0.13333334}
-      - {x: 0.23333333, y: 0.20666668}
-      - {x: 0.17333333, y: 0.24000001}
-      - {x: 0.16666667, y: 0.21333334}
-      - {x: 0.16666667, y: 0.026666667}
-      - {x: 0.120000005, y: 0.21333334}
-      - {x: 0.04, y: 0.42666668}
-      - {x: -0.02, y: 0.42666668}
-      - {x: -0.046666667, y: 0.38}
-      - {x: -0.11333334, y: 0.22}
-      - {x: -0.15333334, y: 0.033333335}
-      - {x: -0.14666668, y: 0.22}
-      - {x: -0.18666667, y: 0.23333333}
-      - {x: -0.21333334, y: 0.20666668}
-      - {x: -0.25333333, y: 0.08}
-      - {x: -0.26000002, y: -0.16}
-      - {x: -0.26000002, y: -0.30666667}
-      - {x: -0.22, y: -0.41333336}
-      - {x: -0.21333334, y: -0.42666668}
-      - {x: 0.23333333, y: -0.42666668}
+    - - {x: 0.24117647, y: -0.2882353}
+      - {x: 0.24117647, y: -0.105882354}
+      - {x: 0.22941177, y: -0.08235294}
+      - {x: 0.22352941, y: 0.11764706}
+      - {x: 0.20588236, y: 0.18235295}
+      - {x: 0.15294118, y: 0.21176471}
+      - {x: 0.14705883, y: 0.1882353}
+      - {x: 0.14705883, y: 0.023529412}
+      - {x: 0.105882354, y: 0.1882353}
+      - {x: 0.03529412, y: 0.3764706}
+      - {x: -0.01764706, y: 0.3764706}
+      - {x: -0.04117647, y: 0.33529413}
+      - {x: -0.1, y: 0.19411765}
+      - {x: -0.13529412, y: 0.029411765}
+      - {x: -0.12941177, y: 0.19411765}
+      - {x: -0.16470589, y: 0.20588236}
+      - {x: -0.1882353, y: 0.18235295}
+      - {x: -0.22352941, y: 0.07058824}
+      - {x: -0.22941177, y: -0.14117648}
+      - {x: -0.22941177, y: -0.27058825}
+      - {x: -0.19411765, y: -0.3647059}
+      - {x: -0.1882353, y: -0.3764706}
+      - {x: 0.20588236, y: -0.3764706}
 --- !u!114 &114854964737587200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,7 +222,6 @@ MonoBehaviour:
   _bulletMaxTravelDistance: 7
   _bulletPrefab: {fileID: 114861334616860320, guid: 7606263b3e461df46be6291c67840b0f,
     type: 2}
-  _mainWeaponCooldown: 40
   _hitPoints: 1
   _enemyType: 1
 --- !u!198 &198547697494761558
@@ -9419,5 +9448,50 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
+  m_SpriteSortPoint: 0
+--- !u!331 &331557311145900798
+SpriteMask:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1684759685591090}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: eaa5efc82a55fde488c1e3c2143f9c0d, type: 3}
+  m_MaskAlphaCutoff: 0.2
+  m_FrontSortingLayerID: 0
+  m_BackSortingLayerID: 0
+  m_FrontSortingLayer: 0
+  m_BackSortingLayer: 0
+  m_FrontSortingOrder: 0
+  m_BackSortingOrder: 0
+  m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 2
   BulletSpeed: 0
-  AttackSpeed: 20
+  AttackSpeed: 18
   MoneyReward: 42
   LevelInfoRows:
   - EnemyType:

@@ -15,6 +15,8 @@ MonoBehaviour:
   BulletSpeed: 0
   AttackSpeed: 20
   MoneyReward: 66
+  BaseHp: 0
+  BaseHpMultiplier: 1
   LevelInfoRows:
   - EnemyType:
     - EnemyType: 1
@@ -83,56 +85,25 @@ MonoBehaviour:
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-  - EnemyType:
     - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
     - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 2
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
@@ -147,23 +118,23 @@ MonoBehaviour:
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 0
+    - EnemyType: 2
       ColorType: 0
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
+    - EnemyType: 2
       ColorType: 0
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
+    - EnemyType: 2
       ColorType: 0
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
+    - EnemyType: 2
       ColorType: 0
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
@@ -180,17 +151,48 @@ MonoBehaviour:
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
+    - EnemyType: 3
+      ColorType: 2
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 1
+    - EnemyType: 3
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 3
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 3
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+  - EnemyType:
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
       ColorType: 1
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 1
+    - EnemyType: 0
       ColorType: 1
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 1
+    - EnemyType: 0
       ColorType: 1
     - EnemyType: 0
       ColorType: 0

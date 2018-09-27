@@ -180,6 +180,7 @@ namespace Player.Controller
             _emitParams.position = transform.position;
             _deathParticleSystem.Emit(_emitParams, 40);
 
+            DestroyAllBullets();
             BossDied?.Invoke();
             _state = BossState.Dead;
         }
@@ -222,6 +223,7 @@ namespace Player.Controller
                     {
                         //_damageController.Disable();
 
+                        
                         GameState.AddScore(_score);
                         _state = BossState.Dying;
                     }
@@ -326,6 +328,17 @@ namespace Player.Controller
                     _bullets.Add(Instantiate(_normalBulletPrefab, pos, Quaternion.identity));
                 }
             }
+        }
+
+        private void DestroyAllBullets()
+        {
+            foreach (var bullet in _bullets)
+            {
+                bullet.IsDead = true;
+                _deadBullets.Add(bullet);
+            }
+
+            DestroyDeadBullets();
         }
 
         private void MoveBullets()

@@ -69,6 +69,7 @@ namespace Player.Controller
 
         private int _dir = 1;
         private int _laserDir = -1;
+        private bool _laserCd;
 
         void Start()
         {
@@ -254,19 +255,41 @@ namespace Player.Controller
 
         private void HandleLaserAttacks()
         {
-            _laserTransform.Rotate(Vector3.back * _laserDir * _laserRotationSpeed * Time.deltaTime, Space.Self);
+            _laserAttackTimer += Time.deltaTime;
 
+            if (_laserAttackTimer < _laserAttackCooldown)
+            {
+                
+                return;
+            }
+
+            if (_laserCd)
+            {
+                _laserTransform.gameObject.SetActive(true);
+                _laserCd = false;
+                Debug.Log("Hello");
+            }
+            
+
+
+            _laserTransform.Rotate(Vector3.back * _laserDir * _laserRotationSpeed * Time.deltaTime, Space.Self);
 
             if (_laserTransform.localRotation.eulerAngles.z > 75 && _laserTransform.localRotation.eulerAngles.z < 104)
             {
                 _laserTransform.localRotation = Quaternion.Euler(0, 0, 180);
                 _laserDir = 1;
+                _laserAttackTimer = 0;
+                _laserTransform.gameObject.SetActive(false);
+                _laserCd = true;
             }
 
             if (_laserTransform.localRotation.eulerAngles.z < 105 && _laserTransform.localRotation.eulerAngles.z > 76)
             {
                 _laserDir = -1;
                 _laserTransform.localRotation = Quaternion.Euler(0, 0, 0);
+                _laserAttackTimer = 0;
+                _laserTransform.gameObject.SetActive(false);
+                _laserCd = true;
             }
         }
 

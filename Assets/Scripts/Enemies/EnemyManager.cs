@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Player.Controller;
 using UnityEngine;
 using DG.Tweening;
-using UnityEditorInternal;
 
 
 namespace Enemies
@@ -22,6 +22,8 @@ namespace Enemies
         [SerializeField] private BossController _redCross;
         [SerializeField] private BossController _purpleNightmare;
         [SerializeField] private BossController _doomsday;
+
+        [SerializeField] private CanvasGroup _canvasGroup;
 
         [SerializeField] private Coin _coinPrefab;
 
@@ -228,7 +230,13 @@ namespace Enemies
                     break;
             }
 
+            Warning();
             boss.BossDied += () => { AllEnemiesAreDead?.Invoke(); };
+        }
+
+        private void Warning()
+        {
+            _canvasGroup.DOFade(1, 0.5f).SetEase(Ease.Linear).SetLoops(6,LoopType.Yoyo).OnComplete(() => { _canvasGroup.DOFade(0, 0.8f);});
         }
     }
 }

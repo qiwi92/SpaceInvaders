@@ -17,7 +17,7 @@ MonoBehaviour:
   MoneyReward: 1
   BaseHp: 0
   BaseHpMultiplier: 1
-  BossType: 1
+  BossType: 4
   LevelInfoRows:
   - EnemyType:
     - EnemyType: 1

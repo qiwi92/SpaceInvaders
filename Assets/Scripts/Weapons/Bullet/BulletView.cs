@@ -2,7 +2,7 @@
 
 namespace Weapons.Bullet
 {
-    public class BulletView : MonoBehaviour
+    public class BulletView : MonoBehaviour, IBullet
     {
         public bool IsDead { get; set; }
     }

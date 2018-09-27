@@ -39,7 +39,7 @@ namespace GameLogic
             _playerController.PlayerIsDead  += () =>
             {
                 //Defeat
-                DOVirtual.DelayedCall(1f, () =>
+                DOVirtual.DelayedCall(2f, () =>
                 {
                     SceneManager.LoadScene(3);
                     GameState.SetMultiplier(_playerController.Accuracy);

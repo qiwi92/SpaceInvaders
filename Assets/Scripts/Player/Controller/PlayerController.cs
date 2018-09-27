@@ -220,7 +220,7 @@ namespace Player.Controller
             {
                 if (_playerState == PlayerState.Alive)
                 {
-                    var bullet = other.GetComponent<BulletView>();
+                    var bullet = other.GetComponent<IBullet>();
 
                     bullet.IsDead = true;
 

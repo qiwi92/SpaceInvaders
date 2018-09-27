@@ -45,7 +45,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1450887518989804
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,12 +457,12 @@ MonoBehaviour:
   _circleBulletPrefab: {fileID: 114080373264796082, guid: ae173e14784ad4d42bc092455c61bfa2,
     type: 2}
   _maxHitPoints: 20
-  _hasNormalAttacks: 0
+  _hasNormalAttacks: 1
   _normalBulletSpeed: 10
   _normalAttackCooldown: 0.2
   _normalAttackCount: 3
   _normalAttacksSpacing: 1
-  _hasCircleAttacks: 0
+  _hasCircleAttacks: 1
   _circleBulletSpeed: 10
   _circleAttackCooldown: 0.2
   _circleAttackCount: 5

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
+﻿using System.Linq;
 using Enemies;
 using Player.Controller;
 using UniRx;
@@ -17,6 +15,7 @@ namespace GameLogic
         public static ReactiveProperty<int> Level = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> Money = new ReactiveProperty<int>(300);
         public static ReactiveProperty<int> MoneyInLastLevel = new ReactiveProperty<int>(0);
+        public static ReactiveProperty<string> PlayerName = new ReactiveProperty<string>("You");
 
         public static PlayerStatModel PlayerStats = new PlayerStatModel();
 

@@ -11,6 +11,9 @@ namespace Enemies
 
         public int MoneyReward;
 
+        public int BaseHp = 0;
+        public int BaseHpMultiplier = 1;
+
         public LevelInfoRow[] LevelInfoRows;
     }
 }

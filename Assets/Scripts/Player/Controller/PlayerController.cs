@@ -228,6 +228,14 @@ namespace Player.Controller
                 }
             }
 
+            if (other.gameObject.layer == 13)
+            {
+                if (_playerState == PlayerState.Alive)
+                {
+                    _playerState = PlayerState.Dying;
+                }
+            }
+
             if (other.gameObject.layer == 12)
             {
                 if (_playerState == PlayerState.Alive)

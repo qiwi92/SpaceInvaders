@@ -15,4 +15,18 @@
         Alive,
         Dying
     }
+
+    public enum BossState
+    {
+        Dead,
+        Spawning,
+        MovingDown,
+        StartingPhaseOne,
+        PhaseOne,
+        StartingPhaseTwo,
+        PhaseTwo,
+        Dying,
+    }
+
+
 }

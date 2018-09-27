@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player.Controller;
+using UnityEngine;
 
 namespace Enemies
 {
@@ -14,6 +15,10 @@ namespace Enemies
         public int BaseHp = 0;
         public int BaseHpMultiplier = 1;
 
+        public BossType BossType = BossType.None;
+
         public LevelInfoRow[] LevelInfoRows;
+
+        
     }
 }

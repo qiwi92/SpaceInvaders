@@ -18,6 +18,11 @@ namespace Enemies
         [SerializeField] private EnemyController _tankPrefab;
         [SerializeField] private EnemyController _shootingTankPrefab;
 
+        [SerializeField] private BossController _greenBoomerang;
+        [SerializeField] private BossController _redCross;
+        [SerializeField] private BossController _purpleNightmare;
+        [SerializeField] private BossController _doomsday;
+
         [SerializeField] private Coin _coinPrefab;
 
         private readonly List<EnemyController> _enemies = new List<EnemyController>();
@@ -60,18 +65,23 @@ namespace Enemies
         private bool _allEnemiesAreDead;
 
         private readonly List<int> _rewardsPerCoin = new List<int>();
+        private bool _hasBoss;
+        private LevelInfo _levelInfo;
 
         public void Setup(LevelInfo levelInfo)
         {
+            _levelInfo = levelInfo;
             _movemementSpeed = levelInfo.Speed;
+
+            _hasBoss = levelInfo.BossType != BossType.None;
+            
+
 
             foreach (var direction in _path)
             {
                 _pos += direction.ToVector2();
                 _moveQueue.Enqueue(_pos);
             }
-
-
 
             for (var y = 0; y < levelInfo.LevelInfoRows.Length; y++)
             {
@@ -154,8 +164,6 @@ namespace Enemies
             newEnemy.transform.position = new Vector2(x * 0.8f - 7, y * 0.8f);
             newEnemy.Setup(color, levelInfo.AttackSpeed, levelInfo.BaseHp, levelInfo.BaseHpMultiplier);
 
-            
-
             _enemies.Add(newEnemy);
         }
 
@@ -163,7 +171,15 @@ namespace Enemies
         {
             if (_enemies.All(enemy => enemy.IsDead) && !_allEnemiesAreDead)
             {
-                AllEnemiesAreDead?.Invoke();
+                if (_hasBoss)
+                {
+                    SpawnBoss();
+                }
+                else
+                {
+                    AllEnemiesAreDead?.Invoke();
+                }
+                
                 _allEnemiesAreDead = true;
             }
 
@@ -191,6 +207,28 @@ namespace Enemies
             {
                 return;
             }
+        }
+
+        private void SpawnBoss()
+        {
+            BossController boss = null;
+            switch (_levelInfo.BossType)
+            {
+                case BossType.GreenBoomerang:
+                    boss = Instantiate(_greenBoomerang);
+                    break;
+                case BossType.RedCross:
+                    boss = Instantiate(_redCross);
+                    break;
+                case BossType.PurpleNighmare:
+                    boss = Instantiate(_purpleNightmare);
+                    break;
+                case BossType.Doomsday:
+                    boss = Instantiate(_doomsday);
+                    break;
+            }
+
+            boss.BossDied += () => { AllEnemiesAreDead?.Invoke(); };
         }
     }
 }

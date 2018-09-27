@@ -456,23 +456,23 @@ MonoBehaviour:
     type: 2}
   _circleBulletPrefab: {fileID: 114080373264796082, guid: ae173e14784ad4d42bc092455c61bfa2,
     type: 2}
-  _maxHitPoints: 20
+  _maxHitPoints: 25
   _hasNormalAttacks: 1
-  _normalBulletSpeed: 10
-  _normalAttackCooldown: 0.2
+  _normalBulletSpeed: 5
+  _normalAttackCooldown: 1
   _normalAttackCount: 3
   _normalAttacksSpacing: 1
-  _hasCircleAttacks: 1
+  _hasCircleAttacks: 0
   _circleBulletSpeed: 10
   _circleAttackCooldown: 0.2
   _circleAttackCount: 5
-  _hasLaserAttacks: 1
+  _hasLaserAttacks: 0
   _laserRotationSpeed: 40
   _laserAttackCooldown: 0
   _laserTransform: {fileID: 4795037022841730}
-  _maxMoveRange: 3.51
+  _maxMoveRange: 5
   _movementSpeed: 2
-  _verticalPosition: 1.7
+  _verticalPosition: 2
   _phaseOneWaitTime: 1
   _phaseTwoWaitTime: 1
 --- !u!198 &198401373911119746

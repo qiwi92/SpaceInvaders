@@ -41,10 +41,13 @@ namespace Player.Controller
         private bool _hasCoin;
         private Coin _coinPrefab;
 
-        public void Setup(ColorType color, float cooldown)
+        public void Setup(ColorType color, float cooldown, int hp, int hpMulti)
         {
             _spriteRenderer.sprite = _sprites.GetSprite(color, _enemyType);
             _weaponCooldown = cooldown;
+
+            _hitPoints += hp;
+            _hitPoints *= hpMulti;
         }
 
         void Start()

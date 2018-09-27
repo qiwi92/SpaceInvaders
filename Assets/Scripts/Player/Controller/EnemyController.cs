@@ -10,6 +10,7 @@ namespace Player.Controller
 {
     public class EnemyController : MonoBehaviour
     {
+        [SerializeField] private EnemyDamageController _damageController;
         [SerializeField] private ParticleSystem _deathParticleSystem;
         [SerializeField] private ParticleSystem _impactParticleSystem;
         [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -33,6 +34,7 @@ namespace Player.Controller
 
         [SerializeField] private int _hitPoints;
         private int _hp = 1;
+        private int _hpMax = 0;
         private ParticleSystem.EmitParams _emitParams;
 
         [SerializeField] private EnemyType _enemyType;
@@ -48,6 +50,8 @@ namespace Player.Controller
 
             _hitPoints += hp;
             _hitPoints *= hpMulti;
+
+            _hpMax = _hitPoints;
         }
 
         void Start()
@@ -136,6 +140,8 @@ namespace Player.Controller
 
                     _hp -= 1;
 
+                    _damageController.SetDamage(_hp/ (float) _hpMax);
+
                     if (_hp > 0)
                     {
                         _impactParticleSystem.Emit(_emitParams, 20);
@@ -143,6 +149,8 @@ namespace Player.Controller
 
                     if (_hp == 0)
                     {
+                        _damageController.Disable();
+
                         if (_hasCoin)
                         {
                             SpawnCoin();
@@ -168,7 +176,7 @@ namespace Player.Controller
             _spriteRenderer.enabled = false;
 
             _emitParams.position = transform.position;
-            _deathParticleSystem.Emit(_emitParams, 20);
+            _deathParticleSystem.Emit(_emitParams, 40);
             _enemyState = EnemyState.Dead;
         }
 

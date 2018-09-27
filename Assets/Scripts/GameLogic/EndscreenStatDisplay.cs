@@ -19,7 +19,7 @@ namespace GameLogic
 
         private void Start()
         {
-            _disposables.Add(GameState.Level.Subscribe(level => { _level.text = "- Level " +  (level-1).ToString("0") + " -" ; }));
+            _disposables.Add(GameState.Level.Subscribe(level => { _level.text = "- Level " +  level.ToString("0") + " -" ; }));
 
             _disposables.Add(GameState.MoneyInLastLevel.Subscribe(moneyInLevel => { _moneyInLevel.text = moneyInLevel.ToString("0"); }));
 

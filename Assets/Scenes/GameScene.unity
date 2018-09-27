@@ -156,7 +156,7 @@ MonoBehaviour:
   _enemyManager: {fileID: 1824199507}
   _playerController: {fileID: 1536754206}
   _levelInfos:
-  - {fileID: 11400000, guid: a621c4adea96ecf4cb475171f5bfbc90, type: 2}
+  - {fileID: 11400000, guid: 10990ed933edceb42b3e73ddb0582db4, type: 2}
   - {fileID: 11400000, guid: b93ee82079f870246993eb03beaa21b8, type: 2}
   - {fileID: 11400000, guid: bcb03c2301dc1944da49de2b88d0d59b, type: 2}
   - {fileID: 11400000, guid: 270bfe21a6cb0e84a900da72b395ee3f, type: 2}

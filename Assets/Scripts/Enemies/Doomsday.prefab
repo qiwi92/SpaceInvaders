@@ -542,23 +542,23 @@ MonoBehaviour:
   _impactParticleSystem: {fileID: 198232737383529890}
   _spriteRenderer: {fileID: 212117924018216516}
   _score: 0
-  _bossType: 1
+  _bossType: 4
   _normalBulletPrefab: {fileID: 114037825383032838, guid: 8d0b633fca7d2e24b938e5a2024c3d35,
     type: 2}
   _circleBulletPrefab: {fileID: 114424443855637508, guid: ab3ab747425d1d94bac53992b7bfb926,
     type: 2}
-  _maxHitPoints: 20
-  _hasNormalAttacks: 0
-  _normalBulletSpeed: 10
-  _normalAttackCooldown: 0.2
-  _normalAttackCount: 3
-  _normalAttacksSpacing: 1
-  _hasCircleAttacks: 0
-  _circleBulletSpeed: 10
-  _circleAttackCooldown: 0.2
-  _circleAttackCount: 5
+  _maxHitPoints: 30
+  _hasNormalAttacks: 1
+  _normalBulletSpeed: 3
+  _normalAttackCooldown: 1
+  _normalAttackCount: 2
+  _normalAttacksSpacing: 2
+  _hasCircleAttacks: 1
+  _circleBulletSpeed: 4
+  _circleAttackCooldown: 1.3
+  _circleAttackCount: 4
   _hasLaserAttacks: 1
-  _laserRotationSpeed: 40
+  _laserRotationSpeed: 30
   _laserAttackCooldown: 1
   _laserTransform: {fileID: 4665929822430154}
   _maxMoveRange: 3.51

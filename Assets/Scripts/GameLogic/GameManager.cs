@@ -16,9 +16,11 @@ namespace GameLogic
 
         private void Start()
         {
+            GameState.IncreaseLevel();
             GameState.ResetValuesFromLastLevel();
+            
 
-            var currentLevelInfo = _levelInfos[GameState.Level.Value - 1];
+            var currentLevelInfo = _levelInfos[GameState.Level.Value-1];
 
             _enemyManager.Setup(currentLevelInfo);
 
@@ -30,9 +32,7 @@ namespace GameLogic
                 DOVirtual.DelayedCall(2f, () =>
                 {
                     SceneManager.LoadScene(2);
-                    
                     GameState.SetMultiplier(_playerController.Accuracy);
-                    GameState.IncreaseLevel();
                 });
             };
 
@@ -43,8 +43,6 @@ namespace GameLogic
                 {
                     SceneManager.LoadScene(3);
                     GameState.SetMultiplier(_playerController.Accuracy);
-                    GameState.ResetToLastWaypoint();
-                    
                 });
             };
         }

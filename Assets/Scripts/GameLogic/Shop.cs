@@ -8,32 +8,41 @@ namespace GameLogic
 {
     public class Shop : MonoBehaviour
     {
-        [SerializeField] private Text _weaponLevel;
-        [SerializeField] private Text _weaponAttackSpeed;
-        [SerializeField] private Text _weaponUpgradeCosts;
-
         [SerializeField] private Color _moneyColor;
         [SerializeField] private Color _cantAffordColor;
 
-        [SerializeField] private Button _upgradeButton;
+        [SerializeField] private Text _weaponLevel;
+        [SerializeField] private Text _weaponAttackSpeed;
+        [SerializeField] private Text _weaponUpgradeCosts;
+        [SerializeField] private Button _weaponUpgradeButton;
 
-        private ReactiveCommand CanBuyWeapon;
+
+
+        [SerializeField] private Text _bulletLevel;
+        [SerializeField] private Text _bulletAmount;
+        [SerializeField] private Text _bulletUpgradeCosts;
+        [SerializeField] private Button _bulletUpgradeButton;
+
+        private ReactiveCommand _canBuyWeapon;
+        private ReactiveCommand _canBuyBullets;
 
         private readonly List<IDisposable> _disposables = new List<IDisposable>();
 
         private void Start()
         {
-            var canBuy = GameState.PlayerStats.WeaponCost.Select(cost => GameState.Money.Value > cost).ToReactiveProperty();
-            CanBuyWeapon = new ReactiveCommand(canBuy);
+            var canBuyWeapon = GameState.PlayerStats.WeaponCost
+                .CombineLatest(GameState.Money, (cost, money) => (int) cost <=  money)
+                .ToReactiveProperty();
+            _canBuyWeapon = new ReactiveCommand(canBuyWeapon);
 
-            _disposables.Add(CanBuyWeapon.Subscribe(buy =>
+            _disposables.Add(_canBuyWeapon.Subscribe(_ =>
             {
-                GameState.Money.Value -= (int) GameState.PlayerStats.WeaponCost.Value;
+                GameState.Money.Value -= (int)GameState.PlayerStats.WeaponCost.Value;
                 GameState.PlayerStats.WeaponLevel.Value += 1;
-                
+
             }));
 
-            _disposables.Add(canBuy.Subscribe(buyable =>
+            _disposables.Add(canBuyWeapon.Subscribe(buyable =>
                 {
                     _weaponUpgradeCosts.color = buyable ? _moneyColor : _cantAffordColor;
                 }));
@@ -42,11 +51,41 @@ namespace GameLogic
             {
                 _weaponLevel.text = lvl.ToString("0");
             }));
-            _disposables.Add(GameState.PlayerStats.WeaponCooldown.Subscribe(weaponCd => _weaponAttackSpeed.text = (1/weaponCd).ToString("0.0")));
+            _disposables.Add(GameState.PlayerStats.WeaponCooldown.Subscribe(weaponCd => _weaponAttackSpeed.text = (1 / weaponCd).ToString("0.0")));
             _disposables.Add(GameState.PlayerStats.WeaponCost.Subscribe(cost => _weaponUpgradeCosts.text = cost.ToString("0")));
 
 
-            _disposables.Add(CanBuyWeapon.BindTo( _upgradeButton));
+            _disposables.Add(_canBuyWeapon.BindTo(_weaponUpgradeButton));
+
+
+            var canBuyBullets = GameState.PlayerStats.BulletCost
+                .CombineLatest(GameState.Money, (cost, money) => (int)cost <= money)
+                .ToReactiveProperty();
+            _canBuyBullets = new ReactiveCommand(canBuyBullets);
+
+            _disposables.Add(_canBuyBullets.Subscribe(_ =>
+            {
+                Debug.Log(GameState.Money.Value);
+                Debug.Log(GameState.PlayerStats.BulletCost.Value);
+                GameState.Money.Value -= (int) GameState.PlayerStats.BulletCost.Value;
+                GameState.PlayerStats.BulletLevel.Value += 1;
+
+            }));
+
+            _disposables.Add(canBuyBullets.Subscribe(buyable =>
+            {
+                _bulletUpgradeCosts.color = buyable ? _moneyColor : _cantAffordColor;
+            }));
+
+            _disposables.Add(GameState.PlayerStats.BulletLevel.Subscribe(lvl =>
+            {
+                _bulletLevel.text = lvl.ToString("0");
+            }));
+            _disposables.Add(GameState.PlayerStats.BulletAmount.Subscribe(amount => _bulletAmount.text = amount.ToString("0")));
+            _disposables.Add(GameState.PlayerStats.BulletCost.Subscribe(cost => _bulletUpgradeCosts.text =  ((int) cost).ToString("0")));
+
+
+            _disposables.Add(_canBuyBullets.BindTo(_bulletUpgradeButton));
 
         }
 

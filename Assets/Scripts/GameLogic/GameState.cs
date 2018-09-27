@@ -14,8 +14,8 @@ namespace GameLogic
         public static ReactiveProperty<int> Score = new ReactiveProperty<int>(0);
         public static int ResultingScore;
         public static ReactiveProperty<int> ScoreInLastLevel = new ReactiveProperty<int>(0);
-        public static ReactiveProperty<int> Level = new ReactiveProperty<int>(1);
-        public static ReactiveProperty<int> Money = new ReactiveProperty<int>(0);
+        public static ReactiveProperty<int> Level = new ReactiveProperty<int>(0);
+        public static ReactiveProperty<int> Money = new ReactiveProperty<int>(300);
         public static ReactiveProperty<int> MoneyInLastLevel = new ReactiveProperty<int>(0);
 
         public static PlayerStatModel PlayerStats = new PlayerStatModel();
@@ -45,10 +45,15 @@ namespace GameLogic
 
         public static void IncreaseLevel()
         {
+            
             Level.Value += 1;
 
-            _lastWayPoint = _wayPoints.TakeWhile(p => p < Level.Value).Last();
-
+            if (Level.Value > 2)
+            {
+                _lastWayPoint = _wayPoints.TakeWhile(p => p < Level.Value).Last();
+            }
+            
+            
             if (_wayPoints.Any(x => x == Level.Value))
             {
                 _scoreAtLastWayPoint = Score.Value;
@@ -58,7 +63,7 @@ namespace GameLogic
         public static void ResetToLastWaypoint()
         {
             Score.Value = _scoreAtLastWayPoint;
-            Level.Value = _lastWayPoint;
+            Level.Value = _lastWayPoint - 1;
         }
 
         public static void AddMoney(int coinValue)
@@ -83,8 +88,13 @@ namespace GameLogic
         {
             
             Multiplier = 2 - missedShotsRatio;
-            ResultingScore =  (int) (Multiplier * ScoreInLastLevel.Value);
+            ResultingScore =  ScoreInLastLevel.Value == 0 ? 0 : (int)(Multiplier * ScoreInLastLevel.Value);
             Score.Value += ResultingScore;
+        }
+
+        public static int GetLastWaypoint()
+        {
+            return _lastWayPoint;
         }
     }
 }

@@ -34,8 +34,7 @@ namespace Player.Controller
         private int _firedBullets;
         private int _missedBullets;
 
-        public float Accuracy => _missedBullets / (float) _firedBullets;
-
+        public float Accuracy => GetAccuary();
 
         public event Action PlayerIsDead;
 
@@ -115,7 +114,24 @@ namespace Player.Controller
             if (Input.GetKey(KeyCode.Space) & _mainWeaponCooldownTimer <= 0)
             {
                 _mainWeaponCooldownTimer = _mainWeaponCooldown;
-                _bullets.Add(Instantiate(_bulletPrefab, transform.position, Quaternion.identity));
+
+                var numOfBullets = GameState.PlayerStats.BulletAmount.Value;
+
+                if (numOfBullets == 1)
+                {
+                    _bullets.Add(Instantiate(_bulletPrefab, transform.position, Quaternion.identity));
+                }
+                else
+                {
+                    for (var i = 0; i < numOfBullets; i++)
+                    {
+                        var pos = transform.position + Vector3.right*0.2f*(i  - (numOfBullets-1)/2f);
+                        _bullets.Add(Instantiate(_bulletPrefab, pos, Quaternion.identity));
+                    }
+
+                }
+
+                
                 _firedBullets += 1;
             }
             
@@ -225,6 +241,16 @@ namespace Player.Controller
                     coin.IsDead = true;
                 }
             }
+        }
+
+        private float GetAccuary()
+        {
+            if (_firedBullets == 0)
+            {
+                return 1;
+            }
+
+            return _missedBullets / (float)_firedBullets;
         }
     }
 }

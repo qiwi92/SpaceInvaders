@@ -19,7 +19,7 @@ namespace Player.Controller
 
         [SerializeField] private int _score;
 
-        private EnemyState _enemyState = EnemyState.Spawning;
+        private EnemyState _enemyState = EnemyState.StartingSpawn;
         
         public bool IsDead { get; private set; }
 
@@ -44,6 +44,10 @@ namespace Player.Controller
         private bool _hasCoin;
         private Coin _coinPrefab;
         private ReactiveProperty<int> _coinAmount;
+        private float _spawnDuration;
+        private float _spawnTimer;
+
+        [SerializeField] private ParticleSystem _spawnParticleSystem;
 
         public void Setup(ColorType color, float cooldown, int hp, int hpMulti)
         {
@@ -101,8 +105,14 @@ namespace Player.Controller
                 case EnemyState.Dead:
                     HandleDead();
                     break;
+                case EnemyState.StartingSpawn:
+                    HandleStartSpawning();
+                    break;
                 case EnemyState.Spawning:
                     HandleSpawning();
+                    break;
+                case EnemyState.EndingSpawn:
+                    HandleEndSpawning();
                     break;
                 case EnemyState.Alive:
                     HandleAlive();
@@ -110,18 +120,44 @@ namespace Player.Controller
                 case EnemyState.Dying:
                     HandleDying();
                     break;
+                
             }
         }
 
+        
+
+        
         private void HandleDead()
         {
             MoveBullets();
             //_enemyState = EnemyState.Spawning;
         }
 
+        private void HandleStartSpawning()
+        {
+            _spawnDuration = Random.Range(0.1f, 1f);
+            _spawnParticleSystem.Play();
+            _spriteRenderer.enabled = false;
+
+
+            _enemyState = EnemyState.Spawning;
+            
+        }
+
         private void HandleSpawning()
         {
+            _spawnTimer += Time.deltaTime;
+            if (_spawnTimer > _spawnDuration)
+            {
+                _enemyState = EnemyState.EndingSpawn;
+            }
+        }
+
+        private void HandleEndSpawning()
+        {
+            _spawnParticleSystem.Stop();
             _spriteRenderer.enabled = true;
+
             _enemyState = EnemyState.Alive;
         }
 

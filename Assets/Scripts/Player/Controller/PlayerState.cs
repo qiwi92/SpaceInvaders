@@ -11,7 +11,9 @@
     public enum EnemyState
     {
         Dead,
+        StartingSpawn,
         Spawning,
+        EndingSpawn,
         Alive,
         Dying
     }

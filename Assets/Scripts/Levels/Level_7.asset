@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12303f79d8f42a29b32843d43700697, type: 3}
   m_Name: Level_7
   m_EditorClassIdentifier: 
+  BackgroundSprite: {fileID: 21300000, guid: bf5b4fec59bae4d4d91356d46aa2eeff, type: 3}
   Speed: 3
   BulletSpeed: 0
   AttackSpeed: 15

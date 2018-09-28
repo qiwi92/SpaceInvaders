@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20000000
+  m_Text: 166497
 --- !u!222 &52542047
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -581,13 +581,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 5
 --- !u!222 &192691368
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -896,13 +896,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 7
 --- !u!222 &379087043
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1429,7 +1429,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20000000
+  m_Text: 176278
 --- !u!222 &594472512
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1618,7 +1618,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 20
-    m_Alignment: 5
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1699,7 +1699,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20000000
+  m_Text: 165624
 --- !u!222 &676260794
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1774,7 +1774,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Green Devil '
+  m_Text: '**Paula**'
 --- !u!222 &705207871
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1964,7 +1964,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20000000
+  m_Text: 165733
 --- !u!222 &907404522
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2262,13 +2262,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 6
 --- !u!222 &1052653859
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2337,13 +2337,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 4
 --- !u!222 &1081804495
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2528,7 +2528,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20000000
+  m_Text: 1942311
 --- !u!222 &1126161241
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2695,7 +2695,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Green Devil '
+  m_Text: qiwi92
 --- !u!222 &1153722919
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2862,7 +2862,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Green Devil '
+  m_Text: HexGod
 --- !u!222 &1299807509
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2937,7 +2937,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20000000
+  m_Text: 168992
 --- !u!222 &1299859712
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3059,7 +3059,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Green Devil '
+  m_Text: xXxKodixXx
 --- !u!222 &1357538886
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3214,13 +3214,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 3
 --- !u!222 &1437359898
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3295,7 +3295,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Green Devil '
+  m_Text: Lee_84
 --- !u!222 &1480912317
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3370,7 +3370,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20000000
+  m_Text: 179963
 --- !u!222 &1582537362
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3445,7 +3445,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Green Devil '
+  m_Text: 'Green_Devil '
 --- !u!222 &1612168521
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3867,7 +3867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Green Devil '
+  m_Text: Cenned
 --- !u!222 &1798669041
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3936,13 +3936,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 2
 --- !u!222 &1873233221
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4011,7 +4011,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

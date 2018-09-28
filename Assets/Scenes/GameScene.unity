@@ -231,7 +231,7 @@ MonoBehaviour:
   _enemyManager: {fileID: 1824199507}
   _playerController: {fileID: 1536754206}
   _levelInfos:
-  - {fileID: 11400000, guid: 82693a4452f965d438181e96000250e0, type: 2}
+  - {fileID: 11400000, guid: 10990ed933edceb42b3e73ddb0582db4, type: 2}
   - {fileID: 11400000, guid: b93ee82079f870246993eb03beaa21b8, type: 2}
   - {fileID: 11400000, guid: bcb03c2301dc1944da49de2b88d0d59b, type: 2}
   - {fileID: 11400000, guid: 270bfe21a6cb0e84a900da72b395ee3f, type: 2}
@@ -601,7 +601,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -100
-  m_Sprite: {fileID: 21300000, guid: c5d5759ccca05084694d3dc87d318874, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf5b4fec59bae4d4d91356d46aa2eeff, type: 3}
   m_Color: {r: 0.5471698, g: 0.432961, b: 0.3948914, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -30,16 +30,16 @@ namespace Player.Controller
 
         private readonly float[] _attackSpeedCosts = new[]
         {
-             100f,
-             150f,
-             225f,
-             337f,
-             506f,
-             759f,
-            1139f,
-            1708f,
-            2562f,
-            3844f
+            120f,
+            180f,
+            270f,
+            405f,
+            608f,
+            911f,
+            1367f,
+            2050f,
+            3075f,
+            4613f,
         };
 
         private readonly int[] _bullets = new[]
@@ -59,16 +59,16 @@ namespace Player.Controller
 
         private readonly float[] _bulletCosts = new[]
         {
-            200f,
-            300f,
-            450f,
-            675f,
-            1012f,
-            1518f,
-            2278f,
-            3417f,
-            5125f,
-            7688f
+            150f,
+            225f,
+            338f,
+            506f,
+            759f,
+            1139f,
+            1709f,
+            2563f,
+            3844f,
+            5767f,
         };      
 
         public PlayerStatModel()

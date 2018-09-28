@@ -231,7 +231,7 @@ MonoBehaviour:
   _enemyManager: {fileID: 1824199507}
   _playerController: {fileID: 1536754206}
   _levelInfos:
-  - {fileID: 11400000, guid: 7cc45b5316326ea4e9c73d8c8f68129a, type: 2}
+  - {fileID: 11400000, guid: 82693a4452f965d438181e96000250e0, type: 2}
   - {fileID: 11400000, guid: b93ee82079f870246993eb03beaa21b8, type: 2}
   - {fileID: 11400000, guid: bcb03c2301dc1944da49de2b88d0d59b, type: 2}
   - {fileID: 11400000, guid: 270bfe21a6cb0e84a900da72b395ee3f, type: 2}
@@ -558,6 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591343130}
   - component: {fileID: 591343129}
+  - component: {fileID: 591343131}
   m_Layer: 0
   m_Name: deep_sky_01
   m_TagString: Untagged
@@ -600,7 +601,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -100
-  m_Sprite: {fileID: 21300000, guid: 481cf937bf449db48884a92ffb9d2106, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5d5759ccca05084694d3dc87d318874, type: 3}
   m_Color: {r: 0.5471698, g: 0.432961, b: 0.3948914, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -624,6 +625,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &591343131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 591343128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a5f09cd01d4e429aabd1b4d0a8a1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _amount: -0.01
+  _playerTransform: {fileID: 1536754208}
 --- !u!1 &869022243
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1062695749}
   - component: {fileID: 1062695748}
+  - component: {fileID: 1062695750}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -768,6 +783,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1062695750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062695747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a5f09cd01d4e429aabd1b4d0a8a1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _amount: -0.05
+  _playerTransform: {fileID: 1536754208}
 --- !u!1 &1062955059
 GameObject:
   m_ObjectHideFlags: 0

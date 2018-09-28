@@ -49,10 +49,9 @@ namespace GameLogic
             
             Level.Value += 1;
 
-            if (Level.Value > 1)
-            {
-                _lastWayPoint = _wayPoints.TakeWhile(p => p < Level.Value).Last();
-            }
+
+            _lastWayPoint = _wayPoints.TakeWhile(p => p < Level.Value).Last();
+            
 
             
 

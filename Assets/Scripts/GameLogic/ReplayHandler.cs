@@ -30,7 +30,8 @@ namespace GameLogic
             {
                 _replayCost.text = GetCost(level).ToString("0");
 
-                var lastLevelWasWaypoint = level == GameState.GetLastWaypoint();
+                var lastLevelWasWaypoint = level == GameState.GetLastWaypoint() +1;
+
                 _replay.SetActive(lastLevelWasWaypoint);
                 _jumpBack.SetActive(!lastLevelWasWaypoint);
                 _replayButton.gameObject.SetActive(!lastLevelWasWaypoint);

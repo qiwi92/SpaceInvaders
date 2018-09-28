@@ -11,56 +11,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12303f79d8f42a29b32843d43700697, type: 3}
   m_Name: Level_10
   m_EditorClassIdentifier: 
-  Speed: 3
+  Speed: 2
   BulletSpeed: 0
-  AttackSpeed: 20
-  MoneyReward: 58
+  AttackSpeed: 25
+  MoneyReward: 82
   BaseHp: 0
   BaseHpMultiplier: 1
+  BossType: 0
   LevelInfoRows:
   - EnemyType:
     - EnemyType: 0
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 0
-      ColorType: 1
-    - EnemyType: 0
-      ColorType: 1
+      ColorType: 2
     - EnemyType: 0
       ColorType: 1
     - EnemyType: 1
       ColorType: 1
     - EnemyType: 1
       ColorType: 1
+    - EnemyType: 3
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 2
     - EnemyType: 1
       ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 3
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 2
     - EnemyType: 1
       ColorType: 1
     - EnemyType: 1
       ColorType: 1
     - EnemyType: 0
-      ColorType: 1
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 2
   - EnemyType:
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
@@ -68,91 +65,117 @@ MonoBehaviour:
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
-  - EnemyType:
-    - EnemyType: 0
-      ColorType: 2
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 2
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 2
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 2
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 2
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 2
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 2
-  - EnemyType: []
-  - EnemyType:
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
+    - EnemyType: 0
+      ColorType: 0
     - EnemyType: 0
       ColorType: 0
   - EnemyType:
     - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
       ColorType: 0
-    - EnemyType: 2
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+  - EnemyType:
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 1
+    - EnemyType: 0
+      ColorType: 1
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 4
+      ColorType: 3
+    - EnemyType: 0
+      ColorType: 3
+    - EnemyType: 0
+      ColorType: 3
+    - EnemyType: 4
+      ColorType: 3
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 1
+    - EnemyType: 0
+      ColorType: 1
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+  - EnemyType:
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+  - EnemyType:
+    - EnemyType: 0
       ColorType: 0
     - EnemyType: 0
       ColorType: 0
@@ -162,15 +185,23 @@ MonoBehaviour:
       ColorType: 0
     - EnemyType: 2
       ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
     - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
       ColorType: 0
     - EnemyType: 0
       ColorType: 0

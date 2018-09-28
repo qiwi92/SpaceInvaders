@@ -231,14 +231,14 @@ MonoBehaviour:
   _enemyManager: {fileID: 1824199507}
   _playerController: {fileID: 1536754206}
   _levelInfos:
-  - {fileID: 11400000, guid: 10990ed933edceb42b3e73ddb0582db4, type: 2}
-  - {fileID: 11400000, guid: b93ee82079f870246993eb03beaa21b8, type: 2}
+  - {fileID: 11400000, guid: f64874c4b210b074f8acc3a5e7218154, type: 2}
+  - {fileID: 11400000, guid: 400af56aad294ff40ad80a3d64a132e3, type: 2}
   - {fileID: 11400000, guid: bcb03c2301dc1944da49de2b88d0d59b, type: 2}
   - {fileID: 11400000, guid: 270bfe21a6cb0e84a900da72b395ee3f, type: 2}
   - {fileID: 11400000, guid: cfb1d367bedcf8541948aa66e1d8d7fc, type: 2}
   - {fileID: 11400000, guid: 7cc45b5316326ea4e9c73d8c8f68129a, type: 2}
-  - {fileID: 11400000, guid: 1a16186563713d243aa714714f7a9d40, type: 2}
-  - {fileID: 11400000, guid: bb9e0a15b51d38045a53e1088b89ea33, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 82693a4452f965d438181e96000250e0, type: 2}
   - {fileID: 11400000, guid: e6612a7f03c50fe49a165ec2fb72bdad, type: 2}
   - {fileID: 11400000, guid: 8d119a06beb8301498aabe74df45e114, type: 2}

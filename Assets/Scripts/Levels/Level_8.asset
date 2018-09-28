@@ -14,13 +14,18 @@ MonoBehaviour:
   Speed: 3
   BulletSpeed: 0
   AttackSpeed: 20
-  MoneyReward: 50
+  MoneyReward: 66
   BaseHp: 0
   BaseHpMultiplier: 1
+  BossType: 0
   LevelInfoRows:
-  - EnemyType: []
-  - EnemyType: []
   - EnemyType:
+    - EnemyType: 0
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
     - EnemyType: 1
       ColorType: 1
     - EnemyType: 1
@@ -28,52 +33,24 @@ MonoBehaviour:
     - EnemyType: 1
       ColorType: 1
     - EnemyType: 0
-      ColorType: 0
+      ColorType: 1
     - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 3
-      ColorType: 2
+      ColorType: 1
     - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
     - EnemyType: 1
       ColorType: 1
     - EnemyType: 1
       ColorType: 1
     - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 0
       ColorType: 1
   - EnemyType:
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 2
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 1
-    - EnemyType: 0
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 1
-    - EnemyType: 0
-      ColorType: 0
     - EnemyType: 0
       ColorType: 0
     - EnemyType: 2
@@ -81,36 +58,120 @@ MonoBehaviour:
     - EnemyType: 2
       ColorType: 0
     - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 0
       ColorType: 0
   - EnemyType:
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 3
-      ColorType: 2
-    - EnemyType: 0
-      ColorType: 0
     - EnemyType: 0
       ColorType: 2
     - EnemyType: 3
       ColorType: 2
     - EnemyType: 0
-      ColorType: 0
+      ColorType: 2
+    - EnemyType: 3
+      ColorType: 2
     - EnemyType: 0
-      ColorType: 0
+      ColorType: 2
+    - EnemyType: 3
+      ColorType: 2
     - EnemyType: 0
-      ColorType: 0
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
-    - EnemyType: 1
-      ColorType: 1
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 2
+    - EnemyType: 3
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 2
+    - EnemyType: 3
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 2
+    - EnemyType: 3
+      ColorType: 2
+    - EnemyType: 0
+      ColorType: 2
   - EnemyType: []
+  - EnemyType:
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 1
+      ColorType: 1
+    - EnemyType: 0
+      ColorType: 0
+  - EnemyType:
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 2
+      ColorType: 0
+    - EnemyType: 0
+      ColorType: 0

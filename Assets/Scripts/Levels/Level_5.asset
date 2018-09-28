@@ -14,7 +14,7 @@ MonoBehaviour:
   Speed: 3
   BulletSpeed: 0
   AttackSpeed: 15
-  MoneyReward: 34
+  MoneyReward: 42
   BaseHp: 0
   BaseHpMultiplier: 1
   BossType: 0

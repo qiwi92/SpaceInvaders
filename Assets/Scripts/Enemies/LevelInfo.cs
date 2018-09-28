@@ -6,6 +6,7 @@ namespace Enemies
     [CreateAssetMenu(fileName = "Level", menuName = "LevelInfo", order = 1)]
     public class LevelInfo : ScriptableObject
     {
+        public Sprite BackgroundSprite;
         public float Speed;
         public float BulletSpeed;
         public float AttackSpeed;
@@ -18,7 +19,5 @@ namespace Enemies
         public BossType BossType = BossType.None;
 
         public LevelInfoRow[] LevelInfoRows;
-
-        
     }
 }

@@ -12,6 +12,8 @@ namespace GameLogic
         [SerializeField] private PlayerController _playerController;
 
         [SerializeField] private LevelInfo[] _levelInfos;
+        [SerializeField] private SpriteRenderer _backGroundSpriteRenderer;
+        [SerializeField] private Sprite _defaultBackground;
 
 
         private void Start()
@@ -20,6 +22,7 @@ namespace GameLogic
             GameState.ResetValuesFromLastLevel();
    
             var currentLevelInfo = _levelInfos[GameState.Level.Value-1];
+            _backGroundSpriteRenderer.sprite = currentLevelInfo.BackgroundSprite ?? _defaultBackground;
 
             _enemyManager.Setup(currentLevelInfo);
 

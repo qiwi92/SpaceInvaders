@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using Enemies;
 using Player.Controller;
 using UniRx;
@@ -8,6 +9,7 @@ namespace GameLogic
 {
     public class GameState : MonoBehaviour
     {
+        public static ReactiveProperty<int> GameTimer = new ReactiveProperty<int>(10*60);
         public static GameState Instance = null;
         public static ReactiveProperty<int> Score = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> ScoreInLastLevel = new ReactiveProperty<int>(0);
@@ -38,6 +40,8 @@ namespace GameLogic
             }
 
             DontDestroyOnLoad(gameObject);
+
+            StartCoroutine(Clock());
         }
 
         public static void IncreaseLevel()
@@ -91,6 +95,16 @@ namespace GameLogic
         public static int GetLastWaypoint()
         {
             return _lastWayPoint;
+        }
+
+        private IEnumerator Clock()
+        {
+            while (GameTimer.Value > 0)
+            {
+                yield return new WaitForSeconds(1);
+                Debug.Log("HEllo");
+                GameTimer.Value -= 1;
+            }
         }
     }
 }

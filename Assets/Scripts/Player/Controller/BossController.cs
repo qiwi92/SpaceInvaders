@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Enemies;
 using GameLogic;
+using UniRx;
 using UnityEngine;
 using Weapons.Bullet;
 using Random = UnityEngine.Random;
@@ -11,6 +12,7 @@ namespace Player.Controller
     public class BossController : MonoBehaviour
     {
         public event Action BossDied;
+        public event Action<float> PercentageHp;
 
         [SerializeField] private EnemyDamageController _damageController;
         [SerializeField] private ParticleSystem _deathParticleSystem;
@@ -70,6 +72,10 @@ namespace Player.Controller
         private int _dir = 1;
         private int _laserDir = -1;
         private bool _laserCd;
+
+        private Coin _coinPrefab;
+        [SerializeField] [Range(5,1000)] private int _moneyReward;
+        private ReactiveProperty<int> _coinAmount;
 
         void Start()
         {
@@ -173,6 +179,7 @@ namespace Player.Controller
 
         private void HandleDying()
         {
+            SpawnCoins(_moneyReward);
             IsDead = true;
             _spriteRenderer.enabled = false;
             _laserTransform.gameObject.SetActive(false);
@@ -180,6 +187,7 @@ namespace Player.Controller
             _emitParams.position = transform.position;
             _deathParticleSystem.Emit(_emitParams, 40);
 
+            DestroyAllBullets();
             BossDied?.Invoke();
             _state = BossState.Dead;
         }
@@ -211,6 +219,8 @@ namespace Player.Controller
 
                     _hp -= 1;
 
+                    PercentageHp?.Invoke(_hp/ (float) _maxHitPoints);
+
                     //_damageController.SetDamage(_hp / (float) _maxHitPoints);
 
                     if (_hp > 0)
@@ -222,6 +232,7 @@ namespace Player.Controller
                     {
                         //_damageController.Disable();
 
+                        
                         GameState.AddScore(_score);
                         _state = BossState.Dying;
                     }
@@ -300,12 +311,12 @@ namespace Player.Controller
             {
                 _circleAttackTimer = 0;
 
-                var angle = 100 / _circleAttackCount;
+                var angle = 360 / _circleAttackCount;
 
                 for (int i = 0; i <= _circleAttackCount; i++)
                 {
                     var newBullet = Instantiate(_circleBulletPrefab, transform.position, Quaternion.identity);
-                    newBullet.Direction = Quaternion.Euler(0, 0, 40 + angle * i) * Vector3.left;
+                    newBullet.Direction = Quaternion.Euler(0, 0, angle * i) * Vector3.left;
                     _bullets.Add(newBullet);
                 }
             }
@@ -326,6 +337,17 @@ namespace Player.Controller
                     _bullets.Add(Instantiate(_normalBulletPrefab, pos, Quaternion.identity));
                 }
             }
+        }
+
+        private void DestroyAllBullets()
+        {
+            foreach (var bullet in _bullets)
+            {
+                bullet.IsDead = true;
+                _deadBullets.Add(bullet);
+            }
+
+            DestroyDeadBullets();
         }
 
         private void MoveBullets()
@@ -358,6 +380,34 @@ namespace Player.Controller
                 _bullets.Remove(deadBullet);
                 Destroy(deadBullet.gameObject);
             }
+        }
+
+        public void SetupCoin(Coin coinPrefab, ReactiveProperty<int> coinAmount)
+        {
+            coinAmount.Value += 5;
+            _coinAmount = coinAmount;
+            _coinPrefab = coinPrefab;
+        }
+
+        private void SpawnCoins(int totalReward)
+        {
+            var divisor = 5;
+
+            for (int i = 0; i < divisor - 1; i++)
+            {
+                var newCoin = Instantiate(_coinPrefab, RandomPos(), Quaternion.identity);
+                newCoin.Amount = _coinAmount;
+                newCoin.Value = (int)Mathf.Floor(totalReward / (float)divisor);
+            }
+
+            var lastCoin = Instantiate(_coinPrefab, RandomPos(), Quaternion.identity);
+            lastCoin.Amount = _coinAmount;
+            lastCoin.Value = (int) Mathf.Floor(totalReward / (float) divisor) + totalReward % divisor;
+        }
+
+        private Vector3 RandomPos()
+        {
+            return transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         }
     }
 }

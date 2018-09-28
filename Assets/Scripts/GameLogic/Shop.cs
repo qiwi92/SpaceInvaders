@@ -8,6 +8,8 @@ namespace GameLogic
 {
     public class Shop : MonoBehaviour
     {
+        [SerializeField] private CanvasGroup _notificationGroup;
+
         [SerializeField] private Color _moneyColor;
         [SerializeField] private Color _cantAffordColor;
 
@@ -86,6 +88,8 @@ namespace GameLogic
 
 
             _disposables.Add(_canBuyBullets.BindTo(_bulletUpgradeButton));
+
+            _disposables.Add(canBuyBullets.CombineLatest(canBuyWeapon, (x,y) => x || y).Subscribe(z => _notificationGroup.alpha = z ? 1 : 0));
 
         }
 

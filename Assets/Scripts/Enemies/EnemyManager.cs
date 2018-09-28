@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Player.Controller;
 using UnityEngine;
 using DG.Tweening;
+using UniRx;
+using UnityEngine.UI;
 
 
 namespace Enemies
@@ -12,6 +13,8 @@ namespace Enemies
     public class EnemyManager : MonoBehaviour
     {
         private float _movemementSpeed;
+
+        private readonly ReactiveProperty<int> _coinAmount = new ReactiveProperty<int>(0);
 
         [SerializeField] private EnemyController _regularPrefab;
         [SerializeField] private EnemyController _shooterPrefab;
@@ -24,6 +27,8 @@ namespace Enemies
         [SerializeField] private BossController _doomsday;
 
         [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private CanvasGroup _canvasGroupHpBar;
+        [SerializeField] private Image _hpBar;
 
         [SerializeField] private Coin _coinPrefab;
 
@@ -76,8 +81,6 @@ namespace Enemies
             _movemementSpeed = levelInfo.Speed;
 
             _hasBoss = levelInfo.BossType != BossType.None;
-            
-
 
             foreach (var direction in _path)
             {
@@ -145,7 +148,7 @@ namespace Enemies
                 {
                     var enemyController = _enemies[i];
                     var coinValue = _rewardsPerCoin[i];
-                    enemyController.SetupCoin(coinValue, _coinPrefab);
+                    enemyController.SetupCoin(coinValue, _coinPrefab, _coinAmount);
                 }
             }
             else
@@ -154,7 +157,7 @@ namespace Enemies
                 {
                     var enemyController = _enemies[i* (numberOfEnemies/divisor)];
                     var coinValue = _rewardsPerCoin[i];
-                    enemyController.SetupCoin(coinValue, _coinPrefab);
+                    enemyController.SetupCoin(coinValue, _coinPrefab, _coinAmount);
                 }
             }
         }
@@ -179,7 +182,7 @@ namespace Enemies
                 }
                 else
                 {
-                    AllEnemiesAreDead?.Invoke();
+                    InvokeAllEnemiesAreDead();
                 }
                 
                 _allEnemiesAreDead = true;
@@ -211,6 +214,11 @@ namespace Enemies
             }
         }
 
+        private void InvokeAllEnemiesAreDead()
+        {
+            _coinAmount.Where(x => x == 0).Subscribe(_ => { AllEnemiesAreDead?.Invoke(); });
+        }
+
         private void SpawnBoss()
         {
             BossController boss = null;
@@ -230,13 +238,27 @@ namespace Enemies
                     break;
             }
 
+            boss.SetupCoin(_coinPrefab, _coinAmount);
             Warning();
-            boss.BossDied += () => { AllEnemiesAreDead?.Invoke(); };
+            boss.BossDied += () =>
+            {
+                _canvasGroupHpBar.DOFade(0, 0.8f);
+                InvokeAllEnemiesAreDead();
+            };
+
+            boss.PercentageHp += percentageHp =>
+            {
+                _hpBar.fillAmount = percentageHp;
+            };
         }
 
         private void Warning()
         {
-            _canvasGroup.DOFade(1, 0.5f).SetEase(Ease.Linear).SetLoops(6,LoopType.Yoyo).OnComplete(() => { _canvasGroup.DOFade(0, 0.8f);});
+            _canvasGroup.DOFade(1, 0.5f).SetEase(Ease.Linear).SetLoops(6,LoopType.Yoyo).OnComplete(() =>
+            {
+                _canvasGroupHpBar.DOFade(1, 0.8f);
+                _canvasGroup.DOFade(0, 0.8f);
+            });
         }
     }
 }

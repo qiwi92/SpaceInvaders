@@ -475,7 +475,7 @@ MonoBehaviour:
   _verticalPosition: 2
   _phaseOneWaitTime: 1
   _phaseTwoWaitTime: 1
-  _moneyReward: 5
+  _moneyReward: 10
 --- !u!198 &198401373911119746
 ParticleSystem:
   m_ObjectHideFlags: 1

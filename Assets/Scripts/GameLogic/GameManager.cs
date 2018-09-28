@@ -18,8 +18,7 @@ namespace GameLogic
         {
             GameState.IncreaseLevel();
             GameState.ResetValuesFromLastLevel();
-            
-
+   
             var currentLevelInfo = _levelInfos[GameState.Level.Value-1];
 
             _enemyManager.Setup(currentLevelInfo);

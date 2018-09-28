@@ -13,7 +13,7 @@ namespace GameLogic
         public static int ResultingScore;
         public static ReactiveProperty<int> ScoreInLastLevel = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> Level = new ReactiveProperty<int>(0);
-        public static ReactiveProperty<int> Money = new ReactiveProperty<int>(300);
+        public static ReactiveProperty<int> Money = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> MoneyInLastLevel = new ReactiveProperty<int>(0);
         public static ReactiveProperty<string> PlayerName = new ReactiveProperty<string>("You");
 
@@ -47,10 +47,9 @@ namespace GameLogic
             
             Level.Value += 1;
 
-            if (Level.Value > 2)
-            {
-                _lastWayPoint = _wayPoints.TakeWhile(p => p < Level.Value).Last();
-            }
+
+            _lastWayPoint = _wayPoints.TakeWhile(p => p <= Level.Value).Last();
+
             
             
             if (_wayPoints.Any(x => x == Level.Value))
@@ -62,7 +61,7 @@ namespace GameLogic
         public static void ResetToLastWaypoint()
         {
             Score.Value = _scoreAtLastWayPoint;
-            Level.Value = _lastWayPoint - 1;
+            Level.Value = _lastWayPoint;
         }
 
         public static void AddMoney(int coinValue)

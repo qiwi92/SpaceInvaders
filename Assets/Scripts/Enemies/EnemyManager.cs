@@ -5,6 +5,7 @@ using System.Linq;
 using Player.Controller;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 
 namespace Enemies
@@ -24,6 +25,8 @@ namespace Enemies
         [SerializeField] private BossController _doomsday;
 
         [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private CanvasGroup _canvasGroupHpBar;
+        [SerializeField] private Image _hpBar;
 
         [SerializeField] private Coin _coinPrefab;
 
@@ -231,12 +234,25 @@ namespace Enemies
             }
 
             Warning();
-            boss.BossDied += () => { AllEnemiesAreDead?.Invoke(); };
+            boss.BossDied += () =>
+            {
+                _canvasGroupHpBar.DOFade(0, 0.8f);
+                AllEnemiesAreDead?.Invoke();
+            };
+
+            boss.PercentageHp += percentageHp =>
+            {
+                _hpBar.fillAmount = percentageHp;
+            };
         }
 
         private void Warning()
         {
-            _canvasGroup.DOFade(1, 0.5f).SetEase(Ease.Linear).SetLoops(6,LoopType.Yoyo).OnComplete(() => { _canvasGroup.DOFade(0, 0.8f);});
+            _canvasGroup.DOFade(1, 0.5f).SetEase(Ease.Linear).SetLoops(6,LoopType.Yoyo).OnComplete(() =>
+            {
+                _canvasGroupHpBar.DOFade(1, 0.8f);
+                _canvasGroup.DOFade(0, 0.8f);
+            });
         }
     }
 }

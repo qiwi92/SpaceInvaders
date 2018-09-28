@@ -11,6 +11,7 @@ namespace Player.Controller
     public class BossController : MonoBehaviour
     {
         public event Action BossDied;
+        public event Action<float> PercentageHp;
 
         [SerializeField] private EnemyDamageController _damageController;
         [SerializeField] private ParticleSystem _deathParticleSystem;
@@ -212,6 +213,8 @@ namespace Player.Controller
 
                     _hp -= 1;
 
+                    PercentageHp?.Invoke(_hp/ (float) _maxHitPoints);
+
                     //_damageController.SetDamage(_hp / (float) _maxHitPoints);
 
                     if (_hp > 0)
@@ -372,5 +375,7 @@ namespace Player.Controller
                 Destroy(deadBullet.gameObject);
             }
         }
+
+        
     }
 }

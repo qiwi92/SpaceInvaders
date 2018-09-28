@@ -556,7 +556,7 @@ MonoBehaviour:
   _hasCircleAttacks: 1
   _circleBulletSpeed: 4
   _circleAttackCooldown: 1.3
-  _circleAttackCount: 4
+  _circleAttackCount: 12
   _hasLaserAttacks: 1
   _laserRotationSpeed: 30
   _laserAttackCooldown: 1
@@ -566,6 +566,7 @@ MonoBehaviour:
   _verticalPosition: 1.7
   _phaseOneWaitTime: 1
   _phaseTwoWaitTime: 1
+  _moneyReward: 40
 --- !u!198 &198011008047386338
 ParticleSystem:
   m_ObjectHideFlags: 1

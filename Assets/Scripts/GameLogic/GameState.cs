@@ -12,7 +12,7 @@ namespace GameLogic
         public static ReactiveProperty<int> Score = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> ScoreInLastLevel = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> Level = new ReactiveProperty<int>(0);
-        public static ReactiveProperty<int> Money = new ReactiveProperty<int>(2);
+        public static ReactiveProperty<int> Money = new ReactiveProperty<int>(500);
         public static ReactiveProperty<int> MoneyInLastLevel = new ReactiveProperty<int>(0);
         public static ReactiveProperty<string> PlayerName = new ReactiveProperty<string>("You");
 

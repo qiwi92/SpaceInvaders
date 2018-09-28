@@ -501,7 +501,7 @@ MonoBehaviour:
   _bulletMaxTravelDistance: 7
   _bulletPrefab: {fileID: 114861334616860320, guid: 7606263b3e461df46be6291c67840b0f,
     type: 2}
-  _hitPoints: 4
+  _hitPoints: 10
   _enemyType: 3
 --- !u!114 &114953725229665946
 MonoBehaviour:

@@ -549,7 +549,7 @@ MonoBehaviour:
   _bulletMaxTravelDistance: 7
   _bulletPrefab: {fileID: 114861334616860320, guid: 7606263b3e461df46be6291c67840b0f,
     type: 2}
-  _hitPoints: 6
+  _hitPoints: 20
   _enemyType: 4
 --- !u!198 &198123182784341310
 ParticleSystem:

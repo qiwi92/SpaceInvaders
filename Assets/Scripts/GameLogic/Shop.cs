@@ -51,7 +51,7 @@ namespace GameLogic
 
             _disposables.Add(GameState.PlayerStats.WeaponLevel.Subscribe(lvl =>
             {
-                _weaponLevel.text = lvl.ToString("0");
+                _weaponLevel.text = (lvl +1).ToString("0");
             }));
             _disposables.Add(GameState.PlayerStats.WeaponCooldown.Subscribe(weaponCd => _weaponAttackSpeed.text = (1 / weaponCd).ToString("0.0")));
             _disposables.Add(GameState.PlayerStats.WeaponCost.Subscribe(cost => _weaponUpgradeCosts.text = cost.ToString("0")));
@@ -81,7 +81,7 @@ namespace GameLogic
 
             _disposables.Add(GameState.PlayerStats.BulletLevel.Subscribe(lvl =>
             {
-                _bulletLevel.text = lvl.ToString("0");
+                _bulletLevel.text = (lvl + 1).ToString("0");
             }));
             _disposables.Add(GameState.PlayerStats.BulletAmount.Subscribe(amount => _bulletAmount.text = amount.ToString("0")));
             _disposables.Add(GameState.PlayerStats.BulletCost.Subscribe(cost => _bulletUpgradeCosts.text =  ((int) cost).ToString("0")));

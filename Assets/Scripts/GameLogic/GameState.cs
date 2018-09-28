@@ -4,12 +4,15 @@ using Enemies;
 using Player.Controller;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GameLogic
 {
     public class GameState : MonoBehaviour
     {
-        public static ReactiveProperty<int> GameTimer = new ReactiveProperty<int>(10*60);
+        [SerializeField] private int _timerInMinutes;
+
+        public static ReactiveProperty<int> GameTimer;
         public static GameState Instance = null;
         public static ReactiveProperty<int> Score = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> ScoreInLastLevel = new ReactiveProperty<int>(0);
@@ -24,8 +27,6 @@ namespace GameLogic
         private static readonly int[] _wayPoints = new[] {0, 3, 6, 9, 12};
         private static int _scoreAtLastWayPoint = 0;
         private static int _lastWayPoint = 0;
-
-        [SerializeField] private LevelInfo[] _levelInfo;
 
         void Awake()
         {
@@ -42,6 +43,7 @@ namespace GameLogic
             DontDestroyOnLoad(gameObject);
 
             StartCoroutine(Clock());
+            
         }
 
         public static void IncreaseLevel()
@@ -98,12 +100,15 @@ namespace GameLogic
 
         private IEnumerator Clock()
         {
+            GameTimer = new ReactiveProperty<int>(_timerInMinutes * 60);
+
             while (GameTimer.Value > 0)
             {
                 yield return new WaitForSeconds(1);
-                Debug.Log("HEllo");
                 GameTimer.Value -= 1;
             }
+
+            SceneManager.LoadScene(4);
         }
     }
 }

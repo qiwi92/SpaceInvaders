@@ -688,12 +688,12 @@ Prefab:
     - target: {fileID: 224015906615336584, guid: abfa87f1d3d6bca43b9156d80c2d3737,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -52.98
+      value: -52.97998
       objectReference: {fileID: 0}
     - target: {fileID: 224015906615336584, guid: abfa87f1d3d6bca43b9156d80c2d3737,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -27.14
+      value: -27.139893
       objectReference: {fileID: 0}
     - target: {fileID: 224015906615336584, guid: abfa87f1d3d6bca43b9156d80c2d3737,
         type: 2}
@@ -10757,6 +10757,36 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 224365829040543496, guid: 85383e62649411547a8a809b71cb6e73,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224365829040543496, guid: 85383e62649411547a8a809b71cb6e73,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224365829040543496, guid: 85383e62649411547a8a809b71cb6e73,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 196.05005
+      objectReference: {fileID: 0}
+    - target: {fileID: 224365829040543496, guid: 85383e62649411547a8a809b71cb6e73,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -73
+      objectReference: {fileID: 0}
+    - target: {fileID: 224365829040543496, guid: 85383e62649411547a8a809b71cb6e73,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 353.69995
+      objectReference: {fileID: 0}
+    - target: {fileID: 224365829040543496, guid: 85383e62649411547a8a809b71cb6e73,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 116.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85383e62649411547a8a809b71cb6e73, type: 2}
   m_IsPrefabAsset: 0
@@ -10871,10 +10901,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -10976,7 +11006,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: df2fadd20c848724bb972a3aad838814, type: 3}
-  m_Color: {r: 0.4481132, g: 1, b: 0.98409486, a: 0}
+  m_Color: {r: 0.4044118, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

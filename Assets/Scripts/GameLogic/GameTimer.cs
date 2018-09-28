@@ -10,6 +10,7 @@ namespace GameLogic
         [SerializeField] private Text _timerText;
 
         private IDisposable _disposable;
+
         private void Start()
         {
             _disposable = GameState.GameTimer.Subscribe(time => { _timerText.text = time.FormatTime(); });

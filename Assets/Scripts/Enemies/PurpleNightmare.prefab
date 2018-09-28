@@ -512,7 +512,7 @@ MonoBehaviour:
     type: 2}
   _circleBulletPrefab: {fileID: 114999548141067326, guid: c0293361d861f5d42ab3ae532c313760,
     type: 2}
-  _maxHitPoints: 90
+  _maxHitPoints: 120
   _hasNormalAttacks: 1
   _normalBulletSpeed: 5
   _normalAttackCooldown: 1.6

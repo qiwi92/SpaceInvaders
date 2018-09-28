@@ -31,7 +31,7 @@ namespace GameLogic
                 DOVirtual.DelayedCall(2f, () =>
                 {
                     SceneManager.LoadScene(2);
-                    GameState.SetMultiplier(_playerController.Accuracy);
+                    GameState.SetScore();
                 });
             };
 
@@ -41,7 +41,7 @@ namespace GameLogic
                 DOVirtual.DelayedCall(2f, () =>
                 {
                     SceneManager.LoadScene(3);
-                    GameState.SetMultiplier(_playerController.Accuracy);
+                    GameState.SetScore();
                 });
             };
         }

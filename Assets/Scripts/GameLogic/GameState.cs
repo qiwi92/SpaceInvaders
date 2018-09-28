@@ -10,20 +10,18 @@ namespace GameLogic
     {
         public static GameState Instance = null;
         public static ReactiveProperty<int> Score = new ReactiveProperty<int>(0);
-        public static int ResultingScore;
         public static ReactiveProperty<int> ScoreInLastLevel = new ReactiveProperty<int>(0);
         public static ReactiveProperty<int> Level = new ReactiveProperty<int>(0);
-        public static ReactiveProperty<int> Money = new ReactiveProperty<int>(0);
+        public static ReactiveProperty<int> Money = new ReactiveProperty<int>(2);
         public static ReactiveProperty<int> MoneyInLastLevel = new ReactiveProperty<int>(0);
         public static ReactiveProperty<string> PlayerName = new ReactiveProperty<string>("You");
 
         public static PlayerStatModel PlayerStats = new PlayerStatModel();
 
-        public static float Multiplier;
 
-        private static readonly int[] _wayPoints = new[] {1, 3, 6, 9, 12};
+        private static readonly int[] _wayPoints = new[] {0, 3, 6, 9, 12};
         private static int _scoreAtLastWayPoint = 0;
-        private static int _lastWayPoint = 1;
+        private static int _lastWayPoint = 0;
 
         [SerializeField] private LevelInfo[] _levelInfo;
 
@@ -47,8 +45,12 @@ namespace GameLogic
             
             Level.Value += 1;
 
+            if (Level.Value > 1)
+            {
+                _lastWayPoint = _wayPoints.TakeWhile(p => p < Level.Value).Last();
+            }
 
-            _lastWayPoint = _wayPoints.TakeWhile(p => p <= Level.Value).Last();
+            
 
             
             
@@ -79,15 +81,11 @@ namespace GameLogic
         {
             ScoreInLastLevel.Value = 0;
             MoneyInLastLevel.Value = 0;
-            Multiplier = 0;
         }
 
-        public static void SetMultiplier(float missedShotsRatio)
+        public static void SetScore()
         {
-            
-            Multiplier = 2 - missedShotsRatio;
-            ResultingScore =  ScoreInLastLevel.Value == 0 ? 0 : (int)(Multiplier * ScoreInLastLevel.Value);
-            Score.Value += ResultingScore;
+            Score.Value += ScoreInLastLevel.Value;
         }
 
         public static int GetLastWaypoint()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Enemies;
 using GameLogic;
+using UniRx;
 using UnityEngine;
 using Weapons.Bullet;
 using Random = UnityEngine.Random;
@@ -42,6 +43,7 @@ namespace Player.Controller
         private int _coinValue;
         private bool _hasCoin;
         private Coin _coinPrefab;
+        private ReactiveProperty<int> _coinAmount;
 
         public void Setup(ColorType color, float cooldown, int hp, int hpMulti)
         {
@@ -149,14 +151,7 @@ namespace Player.Controller
 
                     if (_hp == 0)
                     {
-                        _damageController.Disable();
-
-                        if (_hasCoin)
-                        {
-                            SpawnCoin();
-                        }
-
-                        GameState.AddScore(_score);
+                        
                         _enemyState = EnemyState.Dying;
                     }
                 }
@@ -166,12 +161,22 @@ namespace Player.Controller
         private void SpawnCoin()
         {
             var newCoin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
+            newCoin.Amount = _coinAmount;
             newCoin.Value = _coinValue;
         }
 
 
         private void HandleDying()
         {
+            _damageController.Disable();
+
+            if (_hasCoin)
+            {
+                SpawnCoin();
+            }
+
+            GameState.AddScore(_score);
+
             IsDead = true;
             _spriteRenderer.enabled = false;
 
@@ -232,8 +237,10 @@ namespace Player.Controller
             return _weaponCooldown * Random.Range(0.1f,1f);
         }
 
-        public void SetupCoin(int coinValue, Coin coinPrefab)
+        public void SetupCoin(int coinValue, Coin coinPrefab, ReactiveProperty<int> coinAmount)
         {
+            coinAmount.Value += 1;
+            _coinAmount = coinAmount;
             _coinValue = coinValue;
             _hasCoin = true;
             _coinPrefab = coinPrefab;

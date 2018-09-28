@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Player.Controller;
 using UnityEngine;
 using DG.Tweening;
+using UniRx;
 using UnityEngine.UI;
 
 
@@ -13,6 +13,8 @@ namespace Enemies
     public class EnemyManager : MonoBehaviour
     {
         private float _movemementSpeed;
+
+        private readonly ReactiveProperty<int> _coinAmount = new ReactiveProperty<int>(0);
 
         [SerializeField] private EnemyController _regularPrefab;
         [SerializeField] private EnemyController _shooterPrefab;
@@ -79,8 +81,6 @@ namespace Enemies
             _movemementSpeed = levelInfo.Speed;
 
             _hasBoss = levelInfo.BossType != BossType.None;
-            
-
 
             foreach (var direction in _path)
             {
@@ -148,7 +148,7 @@ namespace Enemies
                 {
                     var enemyController = _enemies[i];
                     var coinValue = _rewardsPerCoin[i];
-                    enemyController.SetupCoin(coinValue, _coinPrefab);
+                    enemyController.SetupCoin(coinValue, _coinPrefab, _coinAmount);
                 }
             }
             else
@@ -157,7 +157,7 @@ namespace Enemies
                 {
                     var enemyController = _enemies[i* (numberOfEnemies/divisor)];
                     var coinValue = _rewardsPerCoin[i];
-                    enemyController.SetupCoin(coinValue, _coinPrefab);
+                    enemyController.SetupCoin(coinValue, _coinPrefab, _coinAmount);
                 }
             }
         }
@@ -182,7 +182,7 @@ namespace Enemies
                 }
                 else
                 {
-                    AllEnemiesAreDead?.Invoke();
+                    InvokeAllEnemiesAreDead();
                 }
                 
                 _allEnemiesAreDead = true;
@@ -214,6 +214,11 @@ namespace Enemies
             }
         }
 
+        private void InvokeAllEnemiesAreDead()
+        {
+            _coinAmount.Where(x => x == 0).Subscribe(_ => { AllEnemiesAreDead?.Invoke(); });
+        }
+
         private void SpawnBoss()
         {
             BossController boss = null;
@@ -233,11 +238,12 @@ namespace Enemies
                     break;
             }
 
+            boss.SetupCoin(_coinPrefab, _coinAmount);
             Warning();
             boss.BossDied += () =>
             {
                 _canvasGroupHpBar.DOFade(0, 0.8f);
-                AllEnemiesAreDead?.Invoke();
+                InvokeAllEnemiesAreDead();
             };
 
             boss.PercentageHp += percentageHp =>

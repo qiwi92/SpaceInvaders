@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UniRx;
+using UnityEngine;
 
 namespace Enemies
 {
@@ -8,6 +9,7 @@ namespace Enemies
         public bool IsDead;
 
         [SerializeField] private float _movementSpeed;
+        public ReactiveProperty<int> Amount { get; set; }
 
         private void Update()
         {
@@ -22,6 +24,7 @@ namespace Enemies
 
             if (IsDead)
             {
+                Amount.Value -= 1;
                 Destroy(gameObject);
             }
         }

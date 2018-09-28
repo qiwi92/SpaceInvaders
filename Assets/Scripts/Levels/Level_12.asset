@@ -16,7 +16,7 @@ MonoBehaviour:
   AttackSpeed: 30
   MoneyReward: 98
   BaseHp: 0
-  BaseHpMultiplier: 1
+  BaseHpMultiplier: 3
   BossType: 4
   LevelInfoRows:
   - EnemyType:

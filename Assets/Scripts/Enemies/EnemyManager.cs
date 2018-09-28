@@ -74,6 +74,7 @@ namespace Enemies
         private readonly List<int> _rewardsPerCoin = new List<int>();
         private bool _hasBoss;
         private LevelInfo _levelInfo;
+        private bool _enemiesHitLine;
 
         public void Setup(LevelInfo levelInfo)
         {
@@ -188,9 +189,10 @@ namespace Enemies
                 _allEnemiesAreDead = true;
             }
 
-            if (_enemies.Any(enemy => !enemy.IsDead && enemy.transform.position.y < -3.35f))
+            if (_enemies.Any(enemy => !enemy.IsDead && enemy.transform.position.y < -3.35f) && !_enemiesHitLine)
             {
                 EnemiesArrievedAtPlayer?.Invoke();
+                _enemiesHitLine = true;
             }
 
             if (_moveQueue.Count < 2)

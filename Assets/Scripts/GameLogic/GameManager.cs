@@ -14,10 +14,13 @@ namespace GameLogic
         [SerializeField] private LevelInfo[] _levelInfos;
         [SerializeField] private SpriteRenderer _backGroundSpriteRenderer;
         [SerializeField] private Sprite _defaultBackground;
+        [SerializeField] private SpriteRenderer _impactLineRenderer;
 
 
         private void Start()
         {
+            _impactLineRenderer.DOFade(0, 0.01f);
+            
             GameState.IncreaseLevel();
             GameState.ResetValuesFromLastLevel();
    
@@ -26,7 +29,11 @@ namespace GameLogic
 
             _enemyManager.Setup(currentLevelInfo);
 
-            _enemyManager.EnemiesArrievedAtPlayer += () => { _playerController.Die(); };
+            _enemyManager.EnemiesArrievedAtPlayer += () =>
+            {
+                _impactLineRenderer.DOFade(1, 0.1f).OnComplete(() => _impactLineRenderer.DOFade(0, 2f));
+                _playerController.Die();
+            };
 
             _enemyManager.AllEnemiesAreDead += () =>
             {
